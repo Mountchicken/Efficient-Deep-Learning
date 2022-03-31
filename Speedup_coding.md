@@ -96,3 +96,9 @@
   - `Step3`: Just code as usual
   - `Step3`: Commit your code
     * When you add some code, you will see the modified files are highlighted.
+    ```bash
+    $ pre-commit run --all-files
+    $ git add .
+    $ git commit
+    $ git push
+    ```
