@@ -133,7 +133,7 @@
 # 5. Use Grammarly to check your writing
 - [Grammarly](https://app.grammarly.com/) is the favorite tool for article writers and bloggers. It can automatically check your spell or grammar error and provide a corresponding fix. It is free of charge with limited functions but is enough for people like us.
 <div align=center>
-<img src='images/img7.png' width=400)
+<img src='images/img7.png' width=400>
 </div>
 
 # 6. Search on StackOverflow first
