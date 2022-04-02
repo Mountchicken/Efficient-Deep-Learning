@@ -23,13 +23,13 @@
 # 2. Automatically format your code
 - Using `yapf` and `flake8` to automatically format your code will save you plenty of time.
   * before format:
-  <div align=center>
-  <img src='images/img2.png' width=300>
-  </div>
+    <div align=center>
+    <img src='images/img2.png' width=450>
+    </div>
   * after format
-  <div align=center>
-  <img src='images/img3.JPG' width=300>
-  <div>
+    <div align=center>
+    <img src='images/img3.JPG' width=450>
+    <div>
 - Install on VSCode:
   * `Step1`, install yapf and flake8
     ```bash
@@ -61,7 +61,7 @@
     ```
   * `Step3`, search `Format on save` in settings and choose it.
   <div align=center>
-  <img src='images/img4.JPG' width=300)
+  <img src='images/img4.JPG' width=450)
   </div>
 # 3. Use a pre-commit hook to check your code
 <div align=center>
@@ -99,7 +99,10 @@
     ```
   - `Step2`: Create a New repository on you github
   - `Step3`: Clone your repo. Copy the https link in the green button
-  <img src='images/img6.png' width=300>
+    <div align=center>
+    <img src='images/img6.png' width=300>
+    </div>
+
     ```bash
     $ git clone https://github.com/...
     ```
@@ -114,16 +117,25 @@
   - `Step3`: Just code as usual
   - `Step3`: Commit your code
     * When you add some code, the modified files are highlighted. Press button `+` to add those modifications
-    ![img](images/img6.JPG)
+      <div align=center>
+      <img src='images/img6.JPG' width=350)
+      </div>
+
     * Then press button `√` to commit. And the pre-commit hook will check your code.
-    ![img](images/img7.JPG)
+      <div align=center>
+      <img src='images/img7.JPG' width=350)
+      </div>
     * Push your code to Github
-    ![img](images/img8.JPG)
+      <div align=center>
+      <img src='images/img8.JPG' width=350)
+      </div>
 
 # 5. Use Grammarly to check your writing
 - [Grammarly](https://app.grammarly.com/) is the favorite tool for article writers and bloggers. It can automatically check your spell or grammar error and provide a corresponding fix. It is free of charge with limited functions but is enough for people like us.
-![img](images/img7.png)
+<div align=center>
+<img src='images/img7.png' width=400)
+</div>
 
 # 6. Search on StackOverflow first
 - When you encounter a bug and need a solution, search on [StackOverflow](https://stackoverflow.com/) first. StackOverflow provides the most comprehensive solution, and almost all your questions can be answered here.
-<img src='images/img9.jpg' width=300><img src='images/img10.jpg' width=300>
+<img src='images/img9.jpg' height=300><img src='images/img10.jpg' height=300>
