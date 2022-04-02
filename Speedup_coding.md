@@ -95,10 +95,7 @@
     ```
   - `Step3`: Just code as usual
   - `Step3`: Commit your code
-    * When you add some code, you will see the modified files are highlighted.
-    ```bash
-    $ pre-commit run --all-files
-    $ git add .
-    $ git commit
-    $ git push
-    ```
+    * When you add some code, you will see the modified files are highlighted. Press button `+` to add those modification
+    ![img](images/img6.JPG)
+    * Then press button `√` to commit.
+    ![img](images/img7.JPG)
