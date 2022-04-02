@@ -6,10 +6,13 @@
 - [Use Grammarly to check your writing](#5-use-grammarly-to-check-your-writing)
 - [Search on StackOverflow first](#6-search-on-stackoverflow-first)
 # 1. You shouldn't miss VSCode
-- <center><img src='images/img1.jpg' width=360 height=240>
+<div align=center>
+  <img src='images/img1.JPG' width=360 height=240>
+</div>
+
 
 - **You can pass this section if you are already using VSCode. Please allow me to spend some time convincing those are not**
-- Without a doubt, VSCode is the **most popular** code editor by combining ease of use and popular IDE features.
+- Without doubt, VSCode is the **most popular** code editor by combining ease of use and popular IDE features.
 - As a loyal user of VSCode, let me put some fancy features in VSCode that help me a lot in my deep learning life.
   * **Extremely fast** launching speed, just in a second
   * **Freedom of customization.** If you don't like so much the basic design proposed by default, you can create your customized themes with high flexibility that lets you customize nearly all UI elements of the editor. If you don't have the time to create one by yourself, you can choose a theme from the thousands available on the market; many of them are very nice.
@@ -20,9 +23,13 @@
 # 2. Automatically format your code
 - Using `yapf` and `flake8` to automatically format your code will save you plenty of time.
   * before format:
-  <img src='images/img2.png'>
+  <div align=center>
+  <img src='images/img2.png' width=300>
+  </div>
   * after format
-  <img src='images/img3.JPG'>
+  <div align=center>
+  <img src='images/img3.JPG' width=300>
+  <div>
 - Install on VSCode:
   * `Step1`, install yapf and flake8
     ```bash
@@ -53,10 +60,14 @@
     }
     ```
   * `Step3`, search `Format on save` in settings and choose it.
-  ![img](images/img4.JPG)
-
+  <div align=center>
+  <img src='images/img4.JPG' width=300)
+  </div>
 # 3. Use a pre-commit hook to check your code
-- <center><img src='images/img5.JPG' width=300>
+<div align=center>
+<img src='images/img5.JPG' width=300>
+</div>
+
 - pre-commit hooks are a mechanism of the version control system git. They let you execute code right before the commit. Git hook scripts are useful for identifying simple issues before submission to code review. The hooks can automatically point out issues in code such as missing semicolons, trailing whitespace, and debug statements.
 - Install Guide
   * `Step1`: Install pre-commit
