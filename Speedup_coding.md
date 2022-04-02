@@ -1,12 +1,14 @@
+# High-Efficiency Coding Strategy
+
 # 1. You shouldn't miss VSCode
 - <center><img src='images/img1.jpg' width=360 height=240>
 
 - **You can pass this section if you are already using VSCode. Please allow me to spend some time convincing those are not**
-- Without doubt, VSCode is the **most popular** code editor by combining ease of use and popular IDE features.
+- Without a doubt, VSCode is the **most popular** code editor by combining ease of use and popular IDE features.
 - As a loyal user of VSCode, let me put some fancy features in VSCode that help me a lot in my deep learning life.
-  * **Extremely fast** lanuncing speed, just in a second
-  * **Freedom of customization.** If you don’t like so much the basic design proposed by default, you can create your own customized themes with a high flexibility that lets you customize nearly all UI elements of the editor.If you don’t have the time to create one by yourself, you can choose a theme from the thousands available on the market, many of them are very nice.
-  * **Well support to Git.** Git is a commonly used develop tools and even if you are not familiar with git, you can still mannage to use it with the user-friendly operations provided in VSCode.
+  * **Extremely fast** launching speed, just in a second
+  * **Freedom of customization.** If you don’t like so much the basic design proposed by default, you can create your customized themes with high flexibility that lets you customize nearly all UI elements of the editor. If you don’t have the time to create one by yourself, you can choose a theme from the thousands available on the market, many of them are very nice.
+  * **Well support Git.** Git is a commonly used development tool and even if you are not familiar with git, you can still manage to use it with the user-friendly operations provided in VSCode.
   * **World's best market.** There are literally thousands of extensions in the VS Code marketplace with new ones coming seemingly every single day.
 - Talking is useless and you will find it out when you tried. [microsoft/vscode](https://github.com/microsoft/vscode)
 
@@ -22,7 +24,7 @@
     $ pip install flake8 yapf isort==5.10.1
     ```
   * `Step2`, add the following commands in `settings.json`
-    ```json
+    ```JSON
     {
       "python.linting.flake8Enabled": true,
       "python.linting.pylintEnabled": false,
@@ -48,7 +50,7 @@
   * `Step3`, search `Format on save` in settings and choose it.
   ![img](images/img4.JPG)
 
-# 3. Using pre-commit hook to check your code.
+# 3. Use a pre-commit hook to check your code.
 - <center><img src='images/img5.JPG' width=300>
 - pre-commit hooks are a mechanism of the version control system git. They let you execute code right before the commit. Git hook scripts are useful for identifying simple issues before submission to code review. The hooks can automatically point out issues in code such as missing semicolons, trailing whitespace, and debug statements.
 - Install Guide
@@ -58,7 +60,7 @@
     ```
   * `Step2`: Add `.pre-commit-config.yaml`.I have provided you with a hook that is used in MMOCR. Add this `.yaml` file to your repository folder,
 
-  * `Step3`: Initialize in your repository folder(This step needs to repeat ever ytime you create a new repo)
+  * `Step3`: Initialize in your repository folder(This step needs to repeat every time you create a new repo)
     ```bash
     $ pre-commit install
     ```
@@ -66,11 +68,11 @@
   ```bash
   $ pre-commit run --all-files
   ```
-- Also, when you are committing your code, the hook will automatically check your code and you won't be able to successfully commit it until all check passed. Yeah, that's the BATMAN🦇.
+- Also, when you are committing your code, the hook will automatically check your code and you won't be able to successfully commit it until all checks pass. Yeah, that's the BATMAN🦇.
 
 # 4. Learn to use Git
 - Combine Git, VSCode, and Github can largely advance your coding progress.
-- Git is complecate, however, with VSCode, it's still complecate.😅 But don't worry, here are some basic steps that is well enough for your personal repo.
+- Git is complicated, however, with VSCode, it's still complicated. But don't worry, here are some basic steps that are well enough for your repo.
   - `Step1`: Setup git config which is your name and email address
     ```bash
     # username and email should be consistent with your github count, E.g.
@@ -86,8 +88,8 @@
     $ git clone https://github.com/...
     ```
 
-- After finish cloning, you will find a hidden file named `.git` in your folder.That's where all the git information stored.
-- Now, here are the recommond procedure when you are developing.
+- After finishing cloning, you will find a hidden file named `.git` in your folder. That's where all the git information is stored.
+- Now, here is the recommended procedure when you are developing.
   - `Step1 (Optional)`: Copy the `.pre-commit-config.yaml` to your folder.
   - `Step2 (Optional)`: Install pre-commit hook
     ```bash
@@ -95,7 +97,17 @@
     ```
   - `Step3`: Just code as usual
   - `Step3`: Commit your code
-    * When you add some code, you will see the modified files are highlighted. Press button `+` to add those modification
+    * When you add some code, you will see the modified files are highlighted. Press button `+` to add those modifications
     ![img](images/img6.JPG)
-    * Then press button `√` to commit.
+    * Then press button `√` to commit. And the pre-commit hook will check your code.
     ![img](images/img7.JPG)
+    * Push your code to Github
+    ![img](images/img8.JPG)
+
+# 5. Use Grammarly to check your writing
+- [Grammarly](https://app.grammarly.com/) is the favorite tool for article writers and bloggers. It can automatically check your spell or grammar error and provide corresponding fix. It's free of charge with limited functions but is enough for people like us.
+![img](images/img7.png)
+
+# 6. Serch on stackoverflow first
+- When you encounter a bug a need a solution, serch on [stackoverflow](https://stackoverflow.com/) first. Stackoverflow provides the most comprehensive solution and almost all your questions can be answered here.
+<img src='images/img9.jpg' width=300><img src='images/img10.jpg' width=300>
