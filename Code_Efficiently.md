@@ -5,7 +5,7 @@
 - [Learn to use Git](#4-learn-to-use-git)
 - [Use Grammarly to check your writing](#5-use-grammarly-to-check-your-writing)
 - [Search on StackOverflow first](#6-search-on-stackoverflow-first)
-# 1. You shouldn't miss VSCode
+## 1. You shouldn't miss VSCode
 <div align=center>
   <img src='images/img1.JPG' width=360 height=240>
 </div>
@@ -20,7 +20,7 @@
   * **World's best market.** There are literally thousands of extensions in the VS Code marketplace with new ones coming seemingly every single day.
 - Talking is useless and you will find it out when you tried. [microsoft/vscode](https://github.com/microsoft/vscode)
 
-# 2. Automatically format your code
+## 2. Automatically format your code
 - Using `yapf` and `flake8` to automatically format your code will save you plenty of time.
   * before format:
     <div align=center>
@@ -63,7 +63,7 @@
   <div align=center>
   <img src='images/img4.JPG' width=450)
   </div>
-# 3. Use a pre-commit hook to check your code
+## 3. Use a pre-commit hook to check your code
 <div align=center>
 <img src='images/img5.JPG' width=300>
 </div>
@@ -86,7 +86,7 @@
   ```
 - Also, when you are committing your code, the hook will automatically check your code and you won't be able to successfully commit it until all checks pass. Yeah, that's the BATMAN🦇.
 
-# 4. Learn to use Git
+## 4. Learn to use Git
 - Combine Git, VSCode, and Github can largely advance your coding progress.
 - Git is complicated, however, with VSCode, it's still complicated. But don't worry, here are some basic steps that are well enough for your repo.
   - `Step1`: Setup git config which is your name and email address
@@ -130,12 +130,12 @@
       <img src='images/img8.JPG' width=350)
       </div>
 
-# 5. Use Grammarly to check your writing
+## 5. Use Grammarly to check your writing
 - [Grammarly](https://app.grammarly.com/) is the favorite tool for article writers and bloggers. It can automatically check your spell or grammar error and provide a corresponding fix. It is free of charge with limited functions but is enough for people like us.
 <div align=center>
 <img src='images/img7.png' width=400>
 </div>
 
-# 6. Search on StackOverflow first
+## 6. Search on StackOverflow first
 - When you encounter a bug and need a solution, search on [StackOverflow](https://stackoverflow.com/) first. StackOverflow provides the most comprehensive solution, and almost all your questions can be answered here.
 <img src='images/img9.jpg' height=300><img src='images/img10.jpg' height=300>
