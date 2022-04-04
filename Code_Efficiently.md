@@ -112,6 +112,15 @@
   - `Step1 (Optional)`: Copy the `.pre-commit-config.yaml` to your folder.
   - `Step2 (Optional)`: Install pre-commit hook
     ```bash
+    # install rvm
+    $ curl -L https://get.rvm.io | bash -s -- --autolibs=read-fail
+    # set up environment
+    # Note that you might need to edit ~/.bashrc, ~/.bash_profile.
+    $ rvm autolibs disable
+    # install ruby
+    $ rvm install 2.7.1
+    # install pre-commit
+    $ pip install -U pre-commit
     $ pre-commit install
     ```
   - `Step3`: Just code as usual
