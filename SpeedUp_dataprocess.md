@@ -13,7 +13,7 @@
 - The full name of LMDB is **Lightning Memory-Mapped Database**. It has a simple file structure, a folder with a data file and a lock file inside. Data can be copied and transferred at will. It is simple to access, no need to run a separate database management process, just refer to the LMDB library in the code that accesses the data, and give the file path when accessing.
 - If you have a large amount of image data, say millions, then I suggest you use lmdb for storage, which can significantly improve the data reading speed.
 - Here, I provide a simple lmdb converter code, and lmdb dataset construction code. [tools/img2lmdb.py](tools/img2lmdb.py)
-### 2.2. Efficient data augmentation tool
+### 2.2. Efficient data augmentation library
 - Deep neural networks require a lot of training data to obtain good results and prevent overfitting. Image augmentation is a process of creating new training examples from the existing ones.
 - [torchvision.transforms](https://pytorch.org/vision/stable/transforms.html) library provides many methods for data augmentation and is widely used. But if your training speed is limited by data augmentation, then you should give [Albumentations](https://github.com/albumentations-team/albumentations) a try.
 <div align=center>
@@ -72,3 +72,55 @@
       | BS=128, NW=2  | 64.92                   | 86.33                | 70.33% | 75.20% |
       | BS=256, NW=2  | 64.89                   | 88.26                | 70.33% | 73.52% |
 - As you can see from the table above, using `Albumentations` will save you an average of 30% of your time under different experimental settings.
+
+### 2.3. Data augmentation on GPU
+- In versions after torchvison 0.8.0, data augmentation on the GPU is now possible. Check [https://github.com/pytorch/vision/releases/tag/v0.8.0] for more details.
+- Here is an experiment to compare the speed of torchvision's augmentation on CPU and GPU, respectively
+    * **Platform**: Google Colab
+    * **Experiment Setup**: We randomly selected **9469 images from ImageNet**. For data augmentation on CPU, we first perform data augmentation on CPU, and then move the augmented image to GPU (`.to('cuda')`). For data augmentation on GPU, we first convert the move to GPU, and then perform data augmentation on GPU. Note that to augment image on GPU, We first need to resize the image to the same size on the CPU, thus building a batch
+    * **Pseudo-code**:
+        ```python
+        import torchvision.transforms as transforms
+        import torch
+        from torch.utils.data import DataLoader
+        import time
+        from tqdm import tqdm
+        transform_cpu = transforms.Compose([
+            transforms.Resize((384,384)),
+            transforms.RandomCrop((224,224)),
+            transforms.RandomHorizontalFlip(0.5),
+            transforms.ColorJitter(0.2,0.2),
+        ])
+        transform_gpu_resize = transforms.Resize((384,384))
+        transform_gpu = torch.nn.Sequential(
+        transforms.RandomCrop((224,224)),
+        transforms.RandomHorizontalFlip(0.5),
+        transforms.ColorJitter(0.2,0.2),
+        )
+        dataset1 = Customdataset(dataset_path, transform_cpu)
+        dataset2 = Customdataset(dataset_path, transform_gpu_resize)
+        loader1 = DataLoader(dataset1,batch_size=256,pin_memory=True)
+        loader2 = DataLoader(dataset2,batch_size=256,pin_memory=True)
+
+        start_time = time.time()
+        for batch in tqdm(loader1):
+            batch = batch.to('cuda')
+            continue
+        print('cpu process time:', time.time()-start_time)
+
+        start_time = time.time()
+        for batch in tqdm(loader2):
+            batch = batch.to('cuda')
+            batch = transform_model(batch)
+            continue
+        print('gpu process time:', time.time()-start_time)
+        ```
+    * **Results**
+
+        | Image Nums | CPU Time (s) | GPU Time (s) | G / C  |
+        | ---------- | ------------ | ------------ | ------ |
+        | 9467       | 116.25       | 106.12       | 91.29% |
+        | 2 * 9467   | 223.29       | 206.41       | 92.44% |
+        | 3 * 9467   | 345.12       | 310.61       | 90.00% |
+        | 4 * 9467   | 455.33       | 415.64       | 91.28% |
+- Augment on GPU can save you some time. Although the time savings are not particularly large, it is intuitive to assume that as the amount of data increases, the time savings will be more.
