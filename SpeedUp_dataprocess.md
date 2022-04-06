@@ -9,6 +9,10 @@
 ## 2. Faster Data preprocessing
 - Data preprocessing is very important in deep learning and speeding up the preprocessing process can save you a lot of time. In the following chapters, I will introduce you to some basic methods, including efficient data storage methods, data preprocessing on the GPU, and libraries to accelerate data preprocessing.
 ### 2.1. Efficient data storage methods
+- When you have a lot of data, try using the `lmdb` format to store the data.
+- The full name of LMDB is **Lightning Memory-Mapped Database**. It has a simple file structure, a folder with a data file and a lock file inside. Data can be copied and transferred at will. It is simple to access, no need to run a separate database management process, just refer to the LMDB library in the code that accesses the data, and give the file path when accessing.
+- If you have a large amount of image data, say millions, then I suggest you use lmdb for storage, which can significantly improve the data reading speed.
+- Here, I provide a simple lmdb converter code, and lmdb dataset construction code. [tools/img2lmdb.py](tools/img2lmdb.py)
 ### 2.2. Efficient data augmentation tool
 - Deep neural networks require a lot of training data to obtain good results and prevent overfitting. Image augmentation is a process of creating new training examples from the existing ones.
 - [torchvision.transforms](https://pytorch.org/vision/stable/transforms.html) library provides many methods for data augmentation and is widely used. But if your training speed is limited by data augmentation, then you should give [Albumentations](https://github.com/albumentations-team/albumentations) a try.
