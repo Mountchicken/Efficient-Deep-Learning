@@ -1,10 +1,11 @@
 # High-Efficiency Coding Strategy
-- [You shouldn't miss VSCode](#1-you-shouldnt-miss-vscode)
-- [Automatically format your code](#2-automatically-format-your-code)
-- [Use a pre-commit hook to check your code](#3-use-a-pre-commit-hook-to-check-your-code)
-- [Learn to use Git](#4-learn-to-use-git)
-- [Use Grammarly to check your writing](#5-use-grammarly-to-check-your-writing)
-- [Search on StackOverflow first](#6-search-on-stackoverflow-first)
+- [High-Efficiency Coding Strategy](#high-efficiency-coding-strategy)
+  - [1. You shouldn't miss VSCode](#1-you-shouldnt-miss-vscode)
+  - [2. Automatically format your code](#2-automatically-format-your-code)
+  - [3. Use a pre-commit hook to check your code](#3-use-a-pre-commit-hook-to-check-your-code)
+  - [4. Learn to use Git](#4-learn-to-use-git)
+  - [5. Use Grammarly to check your writing](#5-use-grammarly-to-check-your-writing)
+  - [6. Search on StackOverflow first](#6-search-on-stackoverflow-first)
 ## 1. You shouldn't miss VSCode
 <div align=center>
   <img src='images/img1.JPG' width=360 height=240>
@@ -147,4 +148,5 @@
 
 ## 6. Search on StackOverflow first
 - When you encounter a bug and need a solution, search on [StackOverflow](https://stackoverflow.com/) first. StackOverflow provides the most comprehensive solution, and almost all your questions can be answered here.
+
 <img src='images/img9.jpg' height=300><img src='images/img10.jpg' height=300>

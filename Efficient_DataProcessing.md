@@ -17,7 +17,7 @@
 - Deep neural networks require a lot of training data to obtain good results and prevent overfitting. Image augmentation is a process of creating new training examples from the existing ones.
 - [torchvision.transforms](https://pytorch.org/vision/stable/transforms.html) library provides many methods for data augmentation and is widely used. But if your training speed is limited by data augmentation, then you should give [Albumentations](https://github.com/albumentations-team/albumentations) a try.
 <div align=center>
-<img src='images/img12.jpg' width=400>
+<img src='images/img12.JPG' width=400>
 </div>
 
 - [Albumentations](https://github.com/albumentations-team/albumentations) is a Python library for image augmentation. It has many advantages and can even be applied to object detection and segmentation. One point we want to focus on here is that it is very fast.
@@ -62,15 +62,15 @@
         ```
     * **Results**
       **BS stands for batch size, NW stands for num_workers in dataloader.**
-      | Loader Params | Albumentations Time (s) | Torchvision Time (s) | A / T  |
-      | ------------- | ----------------------- | -------------------- | ------ |
-      | BS=1, NW=1    | 92.40                   | 137.51               | 67%    |
-      | BS=2, NW=1    | 86.51                   | 124.77               | 69.34% |
-      | BS=32, NW=1   | 81.40                   | 119.75               | 67.97% |
-      | BS=128, NW=1  | 78.49                   | 111.60               | 70.33% |
-      | BS=256, NW=1  | 78.16                   | 106.83               | 70.33% | 73.16% |
-      | BS=128, NW=2  | 64.92                   | 86.33                | 70.33% | 75.20% |
-      | BS=256, NW=2  | 64.89                   | 88.26                | 70.33% | 73.52% |
+        | Loader Params | Albumentations Time (s) | Torchvision Time (s) | A / T  |
+        | ------------- | ----------------------- | -------------------- | ------ |
+        | BS=1, NW=1    | 92.40                   | 137.51               | 67%    |
+        | BS=2, NW=1    | 86.51                   | 124.77               | 69.34% |
+        | BS=32, NW=1   | 81.40                   | 119.75               | 67.97% |
+        | BS=128, NW=1  | 78.49                   | 111.60               | 70.33% |
+        | BS=256, NW=1  | 78.16                   | 106.83               | 70.33% | 73.16% |
+        | BS=128, NW=2  | 64.92                   | 86.33                | 70.33% | 75.20% |
+        | BS=256, NW=2  | 64.89                   | 88.26                | 70.33% | 73.52% |
 - As you can see from the table above, using `Albumentations` will save you an average of 30% of your time under different experimental settings.
 
 ### 2.3. Data augmentation on GPU
