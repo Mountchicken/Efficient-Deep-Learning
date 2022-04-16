@@ -139,5 +139,3 @@
         | 3 * 9467   | 345.12       | 310.61       | 90.00% |
         | 4 * 9467   | 455.33       | 415.64       | 91.28% |
 - Augment on GPU can save you some time. Although the time savings are not particularly large, it is intuitive to assume that as the amount of data increases, the time savings will be more.
-
-### 2.4. Multiple workers and pin_memory in DataLoader
