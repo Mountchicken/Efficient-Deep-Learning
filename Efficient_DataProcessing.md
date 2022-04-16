@@ -1,12 +1,27 @@
 # Speed up data loading
-## 1. Use SSD instead
+- [1. Faster dataloading]()
+  * [1.1. Use SSD instead](#1-use-ssd-instead)
+  * [1.2. Multiple workers and pin_memory in DataLoader]()
+- [2. Faster data Preprocessing](#2-faster-data-preprocessing)
+  * [2.1. Efficient data storage methods](#21-efficient-data-storage-methods)
+  * [2.2. Efficient data augmentation library](#22-efficient-data-augmentation-library)
+  * [2.3. Data augmentation on GPU](#23-data-augmentation-on-gpu)
+
+## 1. Faster dataloading
+### 1.1. Use SSD instead
 <div align=center>
 <img src='images/img11.JPG' width=400>
 </div>
 
 - Training a neural network today often requires massive data, which requires a lot of pointer lookups and reads to the disk. The read and query of HDD is very slow which may become the bottleneck of data processing. Using an SSD can solve this problem quickly. I once did an experiment where it would take two to three days to train a text recognizer with an HDD reading 13 million images, but it only took 4 hours to use an SSD. You don't necessarily need a good GPU, but you definitely need an SSD.
 
-## 2. Faster Data preprocessing
+### 1.2. Multiple workers and pin_memory in DataLoader
+- Set `num_workers > 0` and `pin_memory=True` in `torch.utils.data.DataLoader` can so can significantly improve your training speed. Within a Python process, the `Global Interpreter Lock (GIL)` prevents true fully parallelizing Python code across threads. To avoid blocking computation code with data loading, PyTorch provides an easy switch to perform multi-process data loading by simply setting the argument num_workers to a positive integer. See [here](https://pytorch.org/docs/stable/data.html#multi-process-data-loading) for more details
+- CPU-to-GPU memory transfer is synchronous (i.e. your model training will stop and do CPU-to-GPU memory transfer, slowing your training speed). When you set `pin_memory=True` , these transfers will become asynchronous and your main process will solely focus on model training. This gives another boost.
+- Here is an experiment by NVIDIA which achieves a 2x speed-up for a single training epoch by using four workers and pinned memory.
+![img](images/img14.JPG)
+- Usually, set `num_worker = 4 * num_GPU` is recommended.
+## 2. Faster data preprocessing
 - Data preprocessing is very important in deep learning and speeding up the preprocessing process can save you a lot of time. In the following chapters, I will introduce you to some basic methods, including efficient data storage methods, data preprocessing on the GPU, and libraries to accelerate data preprocessing.
 ### 2.1. Efficient data storage methods
 - When you have a lot of data, try using the `lmdb` format to store the data.
@@ -124,3 +139,5 @@
         | 3 * 9467   | 345.12       | 310.61       | 90.00% |
         | 4 * 9467   | 455.33       | 415.64       | 91.28% |
 - Augment on GPU can save you some time. Although the time savings are not particularly large, it is intuitive to assume that as the amount of data increases, the time savings will be more.
+
+### 2.4. Multiple workers and pin_memory in DataLoader
