@@ -26,14 +26,16 @@ def writeCache(env, cache):
 
 
 def createDataset(imagePath, annoPath, outputPath, checkValid=True):
-    """
-    Create LMDB dataset for training and evaluation.
-    args:
-        imagePath  : path to images
-        annoPath     : path to annotations
-        outputPath : LMDB output path
-        checkValid : if true, check the validity of every image
-    e.g.
+    """Create LMDB dataset for training and evaluation.
+
+    Args:
+        imagePath (_type_): path to images
+        annoPath (_type_): path to annotations
+        outputPath (_type_): LMDB output path
+        checkValid (bool, optional): if true, check the validity of
+            every image.Defaults to True.
+
+    E.g.
     for text recognition task, the file structure is as follow:
       data
          |_image
@@ -49,6 +51,7 @@ def createDataset(imagePath, annoPath, outputPath, checkValid=True):
       annoPath='data/label'
       outputPath='lmdbOut'
     """
+
     os.makedirs(outputPath, exist_ok=True)
     env = lmdb.open(outputPath, map_size=109951162776)
     cache = {}

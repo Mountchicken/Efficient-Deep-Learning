@@ -9,10 +9,10 @@
 - [2. Faster convergence speed]()
   * [2.1. Use another optimizer AdamW]()
   * [2.2. Learning rate schedule]()
-  
+
 ## 1. Faster traing speed
 ### 1.1. Set cudnn.benchmark=True
-- If your model architecture remains **fixed and your input size stays constant**, setting `torch.backends.cudnn.benchmark = True` might be beneficial [docs](https://pytorch.org/docs/stable/backends.html#torch-backends-cudnn). This enables the cudNN autotuner which will benchmark a number of different ways of computing convolutions in cudNN and then use the fastest method from then on. 
+- If your model architecture remains **fixed and your input size stays constant**, setting `torch.backends.cudnn.benchmark = True` might be beneficial [docs](https://pytorch.org/docs/stable/backends.html#torch-backends-cudnn). This enables the cudNN autotuner which will benchmark a number of different ways of computing convolutions in cudNN and then use the fastest method from then on.
 - Add the following lines in your training code
 ```python
 torch.backends.cudnn.benchmark = True
@@ -29,7 +29,7 @@ torch.backends.cudnn.benchmark = True
       param.grad = None
   ```
 - It doesn’t create the unnecessary overhead of setting the memory for each variable. It directly sets the gradients (i.e. only the write operation is done, unlike model.zero_grad()).
-### 1.3. Turn off debugging 
+### 1.3. Turn off debugging
 - Once you are done debugging your model, you should stop the usage of all the debug APIs because they have a significant overhead.
 - Add the following lines after your imports in your code:
 ```

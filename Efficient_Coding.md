@@ -4,11 +4,12 @@
   - [2. Automatically format your code](#2-automatically-format-your-code)
   - [3. Use a pre-commit hook to check your code](#3-use-a-pre-commit-hook-to-check-your-code)
   - [4. Learn to use Git](#4-learn-to-use-git)
-    - [Don't forget the `.gitignore`](#dont-forget-the-gitignore)
+    - [Don't forget the .gitignore](#dont-forget-the-gitignore)
     - [Make your commits more standardized](#make-your-commits-more-standardized)
     - [Branches](#branches)
   - [5. Use Grammarly to check your writing](#5-use-grammarly-to-check-your-writing)
   - [6. Search on StackOverflow first](#6-search-on-stackoverflow-first)
+  - [7. Automatically format your docstring]()
 ## 1. You shouldn't miss VSCode
 <div align=center>
   <img src='images/img1.JPG' width=360 height=240>
@@ -169,10 +170,10 @@ If you are not familiar with Git commands, just follow [this guide](https://lear
 ### **Make your commits more standardized**
 
 - Git commit log summarizes the changes you made. A standardized commit log can make all the things clear. Here's a template.
-  
+
     ```bash
     <feat>                              # type of commit
-    add distribute traing scripts       # details of commit  
+    add distribute traing scripts       # details of commit
     ```
     The first line should tell the commit type, values for reference are listed below. You can create your own commit type.
     - `<feat>`: new features
@@ -187,7 +188,7 @@ If you are not familiar with Git commands, just follow [this guide](https://lear
 ### **Branches**
 
 - `main` or `master` branch should contain stable releases. Do not directly work on the `main/master` branch. Create a `dev` branch for development, merge it to the `main/master` branch only when your dev code is working all right.
-- (Optional) To make your experiment data clear, create a `exp` branch. Make a commit each time you launch a training process, in this way changes of hyperparameters can be recorded. 
+- (Optional) To make your experiment data clear, create a `exp` branch. Make a commit each time you launch a training process, in this way changes of hyperparameters can be recorded.
 
 ## 5. Use Grammarly to check your writing
 - [Grammarly](https://app.grammarly.com/) is the favorite tool for article writers and bloggers. It can automatically check your spell or grammar error and provide a corresponding fix. It is free of charge with limited functions but is enough for people like us.
@@ -199,3 +200,15 @@ If you are not familiar with Git commands, just follow [this guide](https://lear
 - When you encounter a bug and need a solution, search on [StackOverflow](https://stackoverflow.com/) first. StackOverflow provides the most comprehensive solution, and almost all your questions can be answered here.
 
 <img src='images/img9.jpg' height=300><img src='images/img10.jpg' height=300>
+
+## 7. Automatically format your docstring
+- The docstring plugin in vscode can automatically generate docstring for your functions
+- Search and install `autoDocstring` in vscode's market
+<div align=center>
+<img src='images/autoDocstring.JPG' width=200>
+</div>
+
+- After install, press enter after opening docstring with triple quotes (configurable """ or '''). Here is an example.
+<div align=center>
+<img src='images/docstring.JPG' width=400>
+</div>

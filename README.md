@@ -19,5 +19,9 @@
 - [Efficient Data Processing](Efficient_DataProcessing.md)
 
 ## 4.Efficient Training
-- Here are some strategies to speed up your training process 
+- Here are some strategies to speed up your training process
 - [Efficient Traininig](Efficient_Training.md)
+
+## 5.Efficient GPUtilization
+- Here are some tips to improve your GPU utilization, including how to fix CUDA out of memory problem, and tips for multi-gpus training
+- [Efficient GPUtilization](Efficient_GPUtilization.md)
