@@ -11,7 +11,7 @@
 ## 1. CUDA out of memory solutions
 
 <div align=center>
-  <img src='images/COM.JPG' width=360 height=240>
+  <img src='images/COM.jpg' width=360 height=240>
 </div>
 
 - Anyone engaged in deep learning must have encountered the problem of cuda out of memory.Sometimes It's really frustrating when you've finished writing the code and debugged it for a week to make sure everything is correct. Just when you start training, the program throws a `CUDA out of memory` error. Here are some practical ways to hepl you solve this annoying problem
