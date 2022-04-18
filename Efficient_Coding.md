@@ -4,9 +4,9 @@
   - [2. Automatically format your code](#2-automatically-format-your-code)
   - [3. Use a pre-commit hook to check your code](#3-use-a-pre-commit-hook-to-check-your-code)
   - [4. Learn to use Git](#4-learn-to-use-git)
-    - [**Don't forget the `.gitignore`**](#dont-forget-the-gitignore)
-    - [**Make your commits more standardized**](#make-your-commits-more-standardized)
-    - [**Branches**](#branches)
+    - [Don't forget the `.gitignore`](#dont-forget-the-gitignore)
+    - [Make your commits more standardized](#make-your-commits-more-standardized)
+    - [Branches](#branches)
   - [5. Use Grammarly to check your writing](#5-use-grammarly-to-check-your-writing)
   - [6. Search on StackOverflow first](#6-search-on-stackoverflow-first)
 ## 1. You shouldn't miss VSCode
