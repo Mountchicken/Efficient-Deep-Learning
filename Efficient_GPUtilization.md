@@ -1,14 +1,13 @@
 # Efficient GPU Utilization
-- [Efficient GPU Utilization](#efficient-gpu-utilization)
-  - [1. CUDA out of memory solutions](#1-cuda-out-of-memory-solutions)
-    - [1.1. Use a smaller batch size](#11-use-a-smaller-batch-size)
-    - [1.2. Check if there is any accumulated history across your training loop](#12-check-if-there-is-any-accumulated-history-across-your-training-loop)
-    - [1.3. Avoid creating new variables](#13-avoid-creating-new-variables)
-    - [1.4. Delete intermediate variables you don't need](#14-delete-intermediate-variables-you-dont-need)
-    - [1.5. Check if you GPU memory is freed properly](#15-check-if-you-gpu-memory-is-freed-properly)
-    - [1.6. Turn off gradient calculation during validation](#16-turn-off-gradient-calculation-during-validation)
-    - [1.7. COM in Google Colab](#17-com-in-google-colab)
-  - [2. Multiple GPUs](#2-multiple-gpus)
+- [1. CUDA out of memory solutions](#1-cuda-out-of-memory-solutions)
+  - [1.1. Use a smaller batch size](#11-use-a-smaller-batch-size)
+  - [1.2. Check if there is any accumulated history across your training loop](#12-check-if-there-is-any-accumulated-history-across-your-training-loop)
+  - [1.3. Avoid creating new variables](#13-avoid-creating-new-variables)
+  - [1.4. Delete intermediate variables you don't need](#14-delete-intermediate-variables-you-dont-need)
+  - [1.5. Check if you GPU memory is freed properly](#15-check-if-you-gpu-memory-is-freed-properly)
+  - [1.6. Turn off gradient calculation during validation](#16-turn-off-gradient-calculation-during-validation)
+  - [1.7. COM in Google Colab](#17-com-in-google-colab)
+- [2. Multiple GPUs](#2-multiple-gpus)
 
 ## 1. CUDA out of memory solutions
 
