@@ -4,7 +4,7 @@
   * [1.1. Set cudnn.benchmark=True](#11-set-cudnnbenchmarktrue)
   * [1.2. Set gradients to None during back propagation](#12-set-gradients-to-none-during-back-propagation)
   * [1.3. Turn off debugging APIs](#13-turn-off-debugging)
-  * [1.4. Use Automatic Mixed Precision (AMP)](#14-turn-off-gradient-computation-during-validation)
+  * [1.4. Turn off gradient computation during validation](#14-turn-off-gradient-computation-during-validation)
 - [2. Faster convergence speed](#2-faster-convergence-speed)
   * [2.1. Use another optimizer AdamW](#2-faster-convergence-speed)
   * [2.2. Learning rate schedule](#2-faster-convergence-speed)
