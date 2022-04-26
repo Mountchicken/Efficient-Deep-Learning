@@ -10,6 +10,7 @@
 - [2. GPU Memory Saving Tips](#2-gpu-memory-saving-tips)
   - [2.1. Automatic Mixed Precision (AMP)](#21-automatic-mixed-precisionamp)
   - [2.2. Gradient Accumulation](#22-gradient-accumulation)
+  - [2.3. Gradient Checkpoint](#23-gradient-checkpoint)
 - [3. Multiple GPUs](#2-multiple-gpus)
 
 ## 1. CUDA out of memory solutions
@@ -136,14 +137,14 @@ return output
   optimizer = optim.SGD(model.parameters(), ...)
 
   # Creates a GradScaler once at the beginning of training.
-  scaler = GradScaler()
+  scaler = torch.cuda.amp.GradScaler()
 
   for epoch in epochs:
       for input, target in data:
           optimizer.zero_grad()
 
           # Runs the forward pass with autocasting.
-          with autocast():
+          with torch.cuda.amp.autocast():
               output = model(input)
               loss = loss_fn(output, target)
 
@@ -159,7 +160,27 @@ return output
 
           # Updates the scale for next iteration.
           scaler.update()
-  ```
+  ``` 
+- **Experiments**: Here is an experiment from this [blog](https://spell.ml/blog/mixed-precision-training-with-pytorch-Xuk7YBEAACAASJam) that tests the training time and memory usage of different models using AMP
+
+    |Model|GPU|Without AMP|With AMP|
+    |----|----|----|----|
+    |Tiny Feedward|V100|10m 10s|10 m 55s|
+    ||T4|8m 43s|8m 39s|
+    |UNet|V100|8m 25s|**7m 58s**|
+    ||T4|13m 7s|**9m 14s**|
+    |BERT|V100|17m 38s|**8m 10s**|
+    ||T4|55m17s|**20m 27s**|
+
+    |Model|GPU|Without AMP|With AMP|
+    |----|----|----|----|
+    |Tiny Feedward|V100|1.19 GB|1.19 GB|
+    ||T4|0.932 GB|0.936 GB|
+    |UNet|V100|4.33 GB|**3.71 GB**|
+    ||T4|4.26 GB|**2.67 GB**|
+    |BERT|V100|9.62 GB|**8.76 G**|
+    ||T4|9.35 GB|**8.49 GB**|
+- In conclusion, when your have a huge model, use AMP can save you a lot of time and some GPU memory.
 ### 2.2. Gradient Accumulation
 - The most frequent cause of CUDA out of memory is that your batch size is set too large and you can use a small one. However, In some scenarios like object detection, a smaller batch size may cause your network performance to drop, so a good way to balance this is to use gradient accumulation.
 - The core idea is to accumulate the first few gradients and then update the parameters uniformly, thus disguising the large batch size function. Here is an example
@@ -192,4 +213,44 @@ return output
       |32|1|73.85|
       |16|2|73.25|
       |16|1|73.19|
+
+### 2.3. Gradient Checkpoint
+- Gradient Checkpoint is another useful trick to save your GPU memory which is a time for space technique
+- **How neural networks use memory**: In order to understand how gradient checkpoint helps, we first need to understand a bit about how model memory allocation works. The total memory used by a neural network is basically the sum of two components.
+  * The first component is the static memory used by the model
+  * The second component is the dynamic memory taken up by the model's computational graph. Every forward pass through a neural network in train mode computes an activation for every neuron in the network; this value is then stored in the so-called computation graph. One value must be stored for every single training sample in the batch, so this adds up quickly. The total cost is determined by model size and batch size, and sets the limit on the maximum batch size that will fit into your GPU memory.
+- **How Gradient Checkpoint Helps**: The network retains intermediate variables during the forward propagation in order to calculate the gradient during the backward. Gradient checkpoint works by not retaining intermediate variables during the forward propagation but recalculating them during the backward. This can save a lot of memory, but the consequence is that the training time will be longer.
+- **Usage in Pytorch**:
+    ```python
+    import torch.nn as nn
+    from torch.utils.checkpoint import checkpoint
+    class Model(nn.Module):
+        super(Model, self).__init__()
+        def __init__(self):
+            self.layer1 = nn.Conv2d(3,64,3,1,1)
+            self.layer2 = nn.Conv2d(64,64,3,1,1)
+            self.layer3 = nn.Conv2d(64,32,3,1,1)
+        def forward(self,x):
+            x = self.layer1(x)
+            x = checkpoint(self.layer2, x)
+            x = self.layer(x)
+            return x
+    ```
+    - **checkpoint** in forward takes a module and its arguments as input. Then the intermediate output by this module (self.layer2) will not be kept in the computation graph, and  will be recalculated during the backpropagation instead. 
+    ![img](images/gradientckp.gif)
+- **Experiments**: Here is an experiment from [Explore Gradient-Checkpointing in PyTorch](https://qywu.github.io/2019/05/22/explore-gradient-checkpointing.html). It's is an experiment to do classification with BERT, and gradient checkpoint is add to the Multi Head Self Attention module (MHSA) and GeLU in BERT. Using gradient checkpoint can save of lot of GPU memory without droping the performance.
+
+    |Gradient checkpoint|Batch size|GPU Memory|Time for one epoch|Validation Accuracy after one epoch|
+    |----|----|----|----|----|
+    |No|24|10972MB|27min05s|0.7997|
+    |Yes|24|3944MB|36min50s|0.7997|
+    |Yes|132|10212MB|31min20s|0.7946|
+- **Cautions**: Gradient checkpoint is very useful, but be careful where you use it
+  * **Do not use on input layer**. The checkpoint detects whether the input tensor has a gradient or not, and thus performs the relevant operation. The input layer generally uses an image as input, which has no gradient, so it is useless to perform checkpoint on the input layer.
+  * **No dropout, BN or so**: This is because checkpointing is incompatible with dropout (recall that effectively runs the sample through the model twice—dropout would arbitrarily drop different values in each pass, producing different outputs). Basically, any layer that exhibits non-idempotent behavior when rerun shouldn't be checkpointed (nn.BatchNorm is another example).
 ## 3. Multiple GPUs
+
+## Reference
+- [Training larger-than-memory PyTorch models using gradient checkpointing](https://spell.ml/blog/gradient-checkpointing-pytorch-YGypLBAAACEAefHs)
+- [Explore Gradient-Checkpointing in PyTorch](https://qywu.github.io/2019/05/22/explore-gradient-checkpointing.html)
+- [https://spell.ml/blog/mixed-precision-training-with-pytorch-Xuk7YBEAACAASJam](https://spell.ml/blog/mixed-precision-training-with-pytorch-Xuk7YBEAACAASJam)
