@@ -12,6 +12,7 @@
   - [2.2. Gradient Accumulation](#22-gradient-accumulation)
   - [2.3. Gradient Checkpoint](#23-gradient-checkpoint)
 - [3. Multiple GPUs](#2-multiple-gpus)
+  - [3.1. Distributed model training]
 
 ## 1. CUDA out of memory solutions
 
@@ -163,23 +164,23 @@ return output
   ``` 
 - **Experiments**: Here is an experiment from this [blog](https://spell.ml/blog/mixed-precision-training-with-pytorch-Xuk7YBEAACAASJam) that tests the training time and memory usage of different models using AMP
 
-    |Model|GPU|Without AMP|With AMP|
-    |----|----|----|----|
-    |Tiny Feedward|V100|10m 10s|10 m 55s|
-    ||T4|8m 43s|8m 39s|
-    |UNet|V100|8m 25s|**7m 58s**|
-    ||T4|13m 7s|**9m 14s**|
-    |BERT|V100|17m 38s|**8m 10s**|
-    ||T4|55m17s|**20m 27s**|
+    | Model         | GPU  | Without AMP | With AMP    |
+    | ------------- | ---- | ----------- | ----------- |
+    | Tiny Feedward | V100 | 10m 10s     | 10 m 55s    |
+    |               | T4   | 8m 43s      | 8m 39s      |
+    | UNet          | V100 | 8m 25s      | **7m 58s**  |
+    |               | T4   | 13m 7s      | **9m 14s**  |
+    | BERT          | V100 | 17m 38s     | **8m 10s**  |
+    |               | T4   | 55m17s      | **20m 27s** |
 
-    |Model|GPU|Without AMP|With AMP|
-    |----|----|----|----|
-    |Tiny Feedward|V100|1.19 GB|1.19 GB|
-    ||T4|0.932 GB|0.936 GB|
-    |UNet|V100|4.33 GB|**3.71 GB**|
-    ||T4|4.26 GB|**2.67 GB**|
-    |BERT|V100|9.62 GB|**8.76 G**|
-    ||T4|9.35 GB|**8.49 GB**|
+    | Model         | GPU  | Without AMP | With AMP    |
+    | ------------- | ---- | ----------- | ----------- |
+    | Tiny Feedward | V100 | 1.19 GB     | 1.19 GB     |
+    |               | T4   | 0.932 GB    | 0.936 GB    |
+    | UNet          | V100 | 4.33 GB     | **3.71 GB** |
+    |               | T4   | 4.26 GB     | **2.67 GB** |
+    | BERT          | V100 | 9.62 GB     | **8.76 G**  |
+    |               | T4   | 9.35 GB     | **8.49 GB** |
 - In conclusion, when your have a huge model, use AMP can save you a lot of time and some GPU memory.
 ### 2.2. Gradient Accumulation
 - The most frequent cause of CUDA out of memory is that your batch size is set too large and you can use a small one. However, In some scenarios like object detection, a smaller batch size may cause your network performance to drop, so a good way to balance this is to use gradient accumulation.
@@ -201,18 +202,18 @@ return output
 - Note that there may be a slight performance difference if the model includes layers that take batch information into account, such as BN. This is an Experiment conduct by [MMCV](https://github.com/open-mmlab/mmcv/pull/1221). Using gradient accumulation in the presence of BN may degrade model performance, but this problem should be mitigated when the Batch size is large
   - **Faster RCNN without BatchNorm**
 
-      |samples_per_gpu|cumulative_iters|bbox_mAP|
-      |----|----|----|
-      |2|1|0.3770|
-      |1|2|0.3770|
-      |1|1|0.3660|
+        | samples_per_gpu | cumulative_iters | bbox_mAP |
+        | --------------- | ---------------- | -------- |
+        | 2               | 1                | 0.3770   |
+        | 1               | 2                | 0.3770   |
+        | 1               | 1                | 0.3660   |
   - **ResNet-34 with BatchNorm**
 
-      |samples_per_gpu|cumulative_iters|accuracy|
-      |----|----|----|
-      |32|1|73.85|
-      |16|2|73.25|
-      |16|1|73.19|
+        | samples_per_gpu | cumulative_iters | accuracy |
+        | --------------- | ---------------- | -------- |
+        | 32              | 1                | 73.85    |
+        | 16              | 2                | 73.25    |
+        | 16              | 1                | 73.19    |
 
 ### 2.3. Gradient Checkpoint
 - Gradient Checkpoint is another useful trick to save your GPU memory which is a time for space technique
@@ -240,17 +241,33 @@ return output
     ![img](images/gradientckp.gif)
 - **Experiments**: Here is an experiment from [Explore Gradient-Checkpointing in PyTorch](https://qywu.github.io/2019/05/22/explore-gradient-checkpointing.html). It's is an experiment to do classification with BERT, and gradient checkpoint is add to the Multi Head Self Attention module (MHSA) and GeLU in BERT. Using gradient checkpoint can save of lot of GPU memory without droping the performance.
 
-    |Gradient checkpoint|Batch size|GPU Memory|Time for one epoch|Validation Accuracy after one epoch|
-    |----|----|----|----|----|
-    |No|24|10972MB|27min05s|0.7997|
-    |Yes|24|3944MB|36min50s|0.7997|
-    |Yes|132|10212MB|31min20s|0.7946|
+    | Gradient checkpoint | Batch size | GPU Memory | Time for one epoch | Validation Accuracy after one epoch |
+    | ------------------- | ---------- | ---------- | ------------------ | ----------------------------------- |
+    | No                  | 24         | 10972MB    | 27min05s           | 0.7997                              |
+    | Yes                 | 24         | 3944MB     | 36min50s           | 0.7997                              |
+    | Yes                 | 132        | 10212MB    | 31min20s           | 0.7946                              |
 - **Cautions**: Gradient checkpoint is very useful, but be careful where you use it
   * **Do not use on input layer**. The checkpoint detects whether the input tensor has a gradient or not, and thus performs the relevant operation. The input layer generally uses an image as input, which has no gradient, so it is useless to perform checkpoint on the input layer.
   * **No dropout, BN or so**: This is because checkpointing is incompatible with dropout (recall that effectively runs the sample through the model twice—dropout would arbitrarily drop different values in each pass, producing different outputs). Basically, any layer that exhibits non-idempotent behavior when rerun shouldn't be checkpointed (nn.BatchNorm is another example).
 ## 3. Multiple GPUs
-
+### 3.1. Distributed model training
+#### What is distributed training
+- With the rapid development of deep learning, the model parameters are exponentially exploding, challenging the ability of even the most powerful of GPU cards to finish model training jobs in a reasonable amount of time.
+- To solve this problem, a technique called distributed training is gaining popularity.
+- **Distributed training** is the set of techniques for training a deep learning model using multiple GPUs and/or multiple machines. Distributing training jobs allow you to push past the single-GPU memory bottleneck, developing ever larger and powerful models by leveraging many GPUs simultaneously.
+- There are basically two different forms of distributed training in common use today: data parallelization and model parallelization.
+  * **data parallelization**: In data parallelization, the model training job is split on the data. Each GPU in the job receives its own independent slice of the data batch, e.g. its own "batch slice". Each GPU uses this data to independently calculate a gradient update. For example, if you were to use two GPUs and a batch size of 32, one GPU would handle forward and back propagation on the first 16 records, and the second the last 16. These gradient updates are then synchronized among the GPUs, averaged together, and finally applied to the model.
+  * **model parallelization**: In model parallelization, the model training job is split on the model. Each GPU in the job receives a slice of the model, e.g. a subset of its layers. So for example, one GPU might be responsible for its output head,another might handle the input layers, and another, the hidden layers in between.
+#### Data parallelization training
+- The gif below shows how it works:
+  * 1. Each GPU maintains its own copy of the model weights.
+  * 2. Upon receiving the go signal, each worker process draws a disjoint batch from the dataset and computes a gradient for that batch.
+  * 3. The workers use an algorithm called `all-reduce` to synchronize their individual gradients, computing the same average gradient on all nodes locally
+  * 4. Each worker applies the gradient update to its local copy of the model.
+  * 5. The next batch of training begins.
+![img](images/dataparal.gif)
 ## Reference
 - [Training larger-than-memory PyTorch models using gradient checkpointing](https://spell.ml/blog/gradient-checkpointing-pytorch-YGypLBAAACEAefHs)
 - [Explore Gradient-Checkpointing in PyTorch](https://qywu.github.io/2019/05/22/explore-gradient-checkpointing.html)
 - [https://spell.ml/blog/mixed-precision-training-with-pytorch-Xuk7YBEAACAASJam](https://spell.ml/blog/mixed-precision-training-with-pytorch-Xuk7YBEAACAASJam)
+- [Distributed model training in PyTorch using DistributedDataParallel](https://spell.ml/blog/pytorch-distributed-data-parallel-XvEaABIAAB8Ars0e)

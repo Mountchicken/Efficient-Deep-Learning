@@ -41,9 +41,9 @@
 - [Efficient GPUtilization](Efficient_GPUtilization.md)
   * [CUDA out of memory solutions](Efficient_GPUtilization.md#1-cuda-out-of-memory-solutions)
   * [Automatic Mixed Precision (AMP)](Efficient_GPUtilization.md#21-automatic-mixed-precisionamp)
-  *  [Gradient Accumulation](Efficient_GPUtilization.md#22-gradient-accumulation)
-  *  [Gradient Checkpoint](Efficient_GPUtilization.md#23-gradient-checkpoint)
-
+  * [Gradient Accumulation](Efficient_GPUtilization.md#22-gradient-accumulation)
+  * [Gradient Checkpoint](Efficient_GPUtilization.md#23-gradient-checkpoint)
+  * [Data parallelization training](Efficient_GPUtilization.md#31-distributed-model-training)
 ## 6.Efficient Tools
 - A list of useful tools
 - [Efficient Tools](Efficient_Tools.md)
