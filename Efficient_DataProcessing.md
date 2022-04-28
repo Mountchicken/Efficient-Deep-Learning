@@ -108,9 +108,9 @@
         ])
         transform_gpu_resize = transforms.Resize((384,384))
         transform_gpu = torch.nn.Sequential(
-        transforms.RandomCrop((224,224)),
-        transforms.RandomHorizontalFlip(0.5),
-        transforms.ColorJitter(0.2,0.2),
+            transforms.RandomCrop((224,224)),
+            transforms.RandomHorizontalFlip(0.5),
+            transforms.ColorJitter(0.2,0.2),
         )
         dataset1 = Customdataset(dataset_path, transform_cpu)
         dataset2 = Customdataset(dataset_path, transform_gpu_resize)

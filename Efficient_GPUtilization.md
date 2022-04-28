@@ -88,7 +88,7 @@ return output
 ```
 - Here, intermediate remains live even while h is executing, because its scope extrudes past the end of the loop. To free it earlier, you should `del intermediate` when you are done with it.
 
-### 1.5. Check if you GPU memory is freed properly
+### 1.5. Check if your GPU memory is freed properly
 - Sometimes even if your code stops running, the video memory may still be occupied by it. The best way is to find the process engaging gpu memory and kill it
 - find the PID of python process from:
     ```bash
