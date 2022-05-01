@@ -12,7 +12,7 @@
   - [2.2. Gradient Accumulation](#22-gradient-accumulation)
   - [2.3. Gradient Checkpoint](#23-gradient-checkpoint)
 - [3. Multiple GPUs](#2-multiple-gpus)
-  - [3.1. Distributed model training]
+  - [3.1. Distributed model training](#31-distributed-model-training)
 
 ## 1. CUDA out of memory solutions
 
