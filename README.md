@@ -7,7 +7,7 @@
 </div>
 
 ## 1.Introduction
-- With the rapid development of deep learning, more and more people are flocking to this field, including me. As a former rookie, I have experienced various problems during my deep learning process, so I create this repo here to record some tricks that can make you have an efficient deep learning. You are also welcome to raise PR and give some of your tips!
+- With the rapid development of deep learning, more and more people are flocking to this field, including me. As a former rookie, I have experienced various problems during my deep learning process, so I create this repo here to record some tricks that can make you have an efficient deep learning. You are also welcome to raise a PR and give some of your tips!
 
 ## 2.Efficient Coding
 - Strategies to code efficiently.
