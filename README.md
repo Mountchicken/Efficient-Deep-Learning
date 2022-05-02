@@ -36,8 +36,9 @@
   * [Turn off gradient computation during validation](Efficient_Training.md#14-turn-off-gradient-computation-during-validation)
   * [Use another optimizer AdamW](Efficient_Training.md#21-use-another-optimizer-adamw)
   * [Learning rate schedule](Efficient_Training.md#22-learning-rate-schedule)
+  * [Useful combination, Adam with 3e-4](Efficient_Training.md#23-best-combination-adam-with-3e-4)
 ## 5.Efficient GPUtilization
-- Strategies to have a better GPU utilization
+- Strategies to have a better GPU utilization.
 - [Efficient GPUtilization](Efficient_GPUtilization.md)
   * [CUDA out of memory solutions](Efficient_GPUtilization.md#1-cuda-out-of-memory-solutions)
   * [Automatic Mixed Precision (AMP)](Efficient_GPUtilization.md#21-automatic-mixed-precisionamp)
@@ -45,7 +46,7 @@
   * [Gradient Checkpoint](Efficient_GPUtilization.md#23-gradient-checkpoint)
   * [Data parallelization training](Efficient_GPUtilization.md#31-distributed-model-training)
 ## 6.Efficient Tools
-- A list of useful tools
+- A list of useful tools.
 - [Efficient Tools](Efficient_Tools.md)
   * [Torchinfo: Visualize Network Architecture](Efficient_Tools.md#1-torchinfo-visualize-network-architecture)
   * [drawio: Free graphing software](Efficient_Tools.md#2-drawio-free-graphing-software)

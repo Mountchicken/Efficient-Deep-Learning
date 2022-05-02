@@ -8,7 +8,7 @@
 - [2. Faster convergence speed](#2-faster-convergence-speed)
   * [2.1. Use another optimizer AdamW](#2-faster-convergence-speed)
   * [2.2. Learning rate schedule](#2-faster-convergence-speed)
-
+  * [2.3. Best combination, Adam with 3e-4](#23-best-combination-adam-with-3e-4)
 ## 1. Faster traing speed
 ### 1.1. Set cudnn.benchmark=True
 - If your model architecture remains **fixed and your input size stays constant**, setting `torch.backends.cudnn.benchmark = True` might be beneficial [docs](https://pytorch.org/docs/stable/backends.html#torch-backends-cudnn). This enables the cudNN autotuner which will benchmark a number of different ways of computing convolutions in cudNN and then use the fastest method from then on.
@@ -53,3 +53,6 @@ torch.autograd.profiler.emit_nvtx(False)
 - The learning rate (schedule) you choose has a large impact on the speed of convergence as well as the generalization performance of your model. `Cyclical learning rate` and the `1Cycle learning rate` schedule seem to accelerate convergence.
 ![img](images/img15.JPG)
 - PyTorch implements both of these methods `torch.optim.lr_scheduler.CyclicLR` and `torch.optim.lr_scheduler.OneCycleLR`, see [here]() for more details.
+
+### 2.3. Best combination, Adam with 3e-4
+- The Adam optimizer with a learning rate of 3e-4 is a very good combinator. You can try this pair when your network does not converge, and if the network still does not converge, then you can at least rule out that it is a learning rate problem.
