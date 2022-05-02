@@ -10,8 +10,8 @@
 - `website`: [https://github.com/jgraph/drawio-desktop](https://github.com/jgraph/drawio-desktop)
 - drwaio is a diagramming and whiteboarding desktop app based on Electron that wraps the core draw.io editor.
 ![img](images/drwaio.JPG)
-- BTW, drawio is also supported in Vscode's plugin.
-
+- Here is an example of using DrawIO to draw a neural network structure: [How to Easily Draw Neural Network Architecture Diagrams](https://towardsdatascience.com/how-to-easily-draw-neural-network-architecture-diagrams-a6b6138ed875)
+![img](images/drawioep.png)
 ## 3. Octotree: Free gitHub code tree
 - [Octotree](https://chrome.google.com/webstore/detail/octotree-github-code-tree/bkhaagjahfmjljalopjnoealnfndnagc) is a powerful and free plugin for displaying Github project code in a tree format that can drastically improve your github experience. If you're as heavily addicted to github as I am, then you can't miss it.
 <div align=center>
