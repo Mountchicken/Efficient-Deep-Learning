@@ -1,4 +1,5 @@
 # High-Efficiency Coding Strategy
+
 - [High-Efficiency Coding Strategy](#high-efficiency-coding-strategy)
   - [1. You shouldn't miss VSCode](#1-you-shouldnt-miss-vscode)
   - [2. Automatically format your code](#2-automatically-format-your-code)
@@ -10,7 +11,9 @@
   - [5. Use Grammarly to check your writing](#5-use-grammarly-to-check-your-writing)
   - [6. Search on StackOverflow first](#6-search-on-stackoverflow-first)
   - [7. Automatically format your docstring]()
+
 ## 1. You shouldn't miss VSCode
+
 <div align=center>
   <img src='images/img1.JPG' width=360 height=240>
 </div>
@@ -19,28 +22,29 @@
 - **You can pass this section if you are already using VSCode. Please allow me to spend some time convincing those are not**
 - Without doubt, VSCode is the **most popular** code editor by combining ease of use and popular IDE features.
 - As a loyal user of VSCode, let me put some fancy features in VSCode that help me a lot in my deep learning life.
-  * **Extremely fast** launching speed, just in a second
-  * **Freedom of customization.** If you don't like so much the basic design proposed by default, you can create your customized themes with high flexibility that lets you customize nearly all UI elements of the editor. If you don't have the time to create one by yourself, you can choose a theme from the thousands available on the market; many of them are very nice.
-  * **Well support Git.** Git is a commonly used development tool and even if you are not familiar with git, you can still manage to use it with the user-friendly operations provided in VSCode.
-  * **World's best market.** There are literally thousands of extensions in the VS Code marketplace with new ones coming seemingly every single day.
+  - **Extremely fast** launching speed, just in a second
+  - **Freedom of customization.** If you don't like so much the basic design proposed by default, you can create your customized themes with high flexibility that lets you customize nearly all UI elements of the editor. If you don't have the time to create one by yourself, you can choose a theme from the thousands available on the market; many of them are very nice.
+  - **Well support Git.** Git is a commonly used development tool and even if you are not familiar with git, you can still manage to use it with the user-friendly operations provided in VSCode.
+  - **World's best market.** There are literally thousands of extensions in the VS Code marketplace with new ones coming seemingly every single day.
 - Talking is useless and you will find it out when you tried. [microsoft/vscode](https://github.com/microsoft/vscode)
 
 ## 2. Automatically format your code
+
 - Using `yapf` and `flake8` to automatically format your code will save you plenty of time.
-  * before format:
+  - before format:
     <div align=center>
     <img src='images/img2.png' width=450>
     </div>
-  * after format
+  - after format
     <div align=center>
     <img src='images/img3.JPG' width=450>
     <div>
 - Install on VSCode:
-  * `Step1`, install yapf and flake8
+  - `Step1`, install yapf and flake8
     ```bash
     $ pip install flake8 yapf isort==5.10.1
     ```
-  * `Step2`, add the following commands in `settings.json`
+  - `Step2`, add the following commands in `settings.json`
     ```JSON
     {
       "python.linting.flake8Enabled": true,
@@ -64,40 +68,51 @@
       }
     }
     ```
-  * `Step3`, search `Format on save` in settings and choose it.
+  - `Step3`, search `Format on save` in settings and choose it.
+
   <div align=center>
   <img src='images/img4.JPG' width=450)
   </div>
+
 ## 3. Use a pre-commit hook to check your code
+
 <div align=center>
 <img src='images/img5.JPG' width=300>
 </div>
 
 - pre-commit hooks are a mechanism of the version control system git. They let you execute code right before the commit. Git hook scripts are useful for identifying simple issues before submission to code review. The hooks can automatically point out issues in code such as missing semicolons, trailing whitespace, and debug statements.
 - Install Guide
-  * `Step1`: Install pre-commit
+  - `Step1`: Install pre-commit
+
     ```bash
     $ pip install -U pre-commit
     ```
-  * `Step2`: Add `.pre-commit-config.yaml`.I have provided you with a hook that is used in MMOCR. Add this `.yaml` file to your repository folder,
 
-  * `Step3`: Initialize in your repository folder(This step needs to repeat every time you create a new repo)
+  - `Step2`: Add `.pre-commit-config.yaml`.I have provided you with a hook that is used in MMOCR. Add this `.yaml` file to your repository folder,
+
+  - `Step3`: Initialize in your repository folder(This step needs to repeat every time you create a new repo)
+
     ```bash
     $ pre-commit install
     ```
+
 - After installed, you can run the following command to start a check.
+
   ```bash
   $ pre-commit run --all-files
   ```
+
 - Also, when you are committing your code, the hook will automatically check your code and you won't be able to successfully commit it until all checks pass. Yeah, that's the BATMAN🦇.
 
 ## 4. Learn to use Git
+
 A deep learning project may contain a lot of code. Using a version control tool can help us record the modifications, that's why we need Git. VSCode now has a Git integration, will several plugins, your coding progress can be greatly advanced.
 
 If you are not familiar with Git commands, just follow [this guide](https://learngitbranching.js.org/).
 
 - Git is complicated. But don't worry, here are some basic steps that are well enough for your repo.
   - `Step1`: Setup git config with your name and email address
+
     ```bash
     # username and email should be consistent with your github count, E.g.
     # $ git config --global user.name "Mountchicken"
@@ -105,6 +120,7 @@ If you are not familiar with Git commands, just follow [this guide](https://lear
     $ git config --global user.name "Username"
     $ git config --global user.email "Email"
     ```
+
   - `Step2`: Create a New repository on you github
   - `Step3`: Clone your repo. Using `HTTPS` or `SSH` are both OK. `HTTPS` requires entering your GitHub username and password each time you access the remote repository (pull, fetch, push). As for the `SSH`, you shold add your device's public ssh key to your GitHub `settings -> SSH and GPG keys` in advance, once added, no password is required. If you are coding on your private devices, `SSH` seems better. If you are coding on devices like cluster server, `HTTPS` is recommended.
 
@@ -121,6 +137,7 @@ If you are not familiar with Git commands, just follow [this guide](https://lear
 - Now, here is the recommended procedure when you are developing.
   - `Step1 (Optional)`: Copy the `.pre-commit-config.yaml` to your folder.
   - `Step2 (Optional)`: Install pre-commit hook
+
     ```bash
     # install rvm
     $ curl -L https://get.rvm.io | bash -s -- --autolibs=read-fail
@@ -133,6 +150,7 @@ If you are not familiar with Git commands, just follow [this guide](https://lear
     $ pip install -U pre-commit
     $ pre-commit install
     ```
+
   - `Step3 (Optional)`: Install the `Git Graph` and `GitLens` plugin in VSCode.
     - `Git Graph` can visualize your branches and logs. Here's an example:
         <img src="./images/GitGraph.jpg" width=400>
@@ -175,6 +193,7 @@ If you are not familiar with Git commands, just follow [this guide](https://lear
     <feat>                              # type of commit
     add distribute traing scripts       # details of commit
     ```
+
     The first line should tell the commit type, values for reference are listed below. You can create your own commit type.
     - `<feat>`: new features
     - `<bugFix>`: bug fixes
@@ -191,17 +210,21 @@ If you are not familiar with Git commands, just follow [this guide](https://lear
 - (Optional) To make your experiment data clear, create a `exp` branch. Make a commit each time you launch a training process, in this way changes of hyperparameters can be recorded.
 
 ## 5. Use Grammarly to check your writing
+
 - [Grammarly](https://app.grammarly.com/) is the favorite tool for article writers and bloggers. It can automatically check your spell or grammar error and provide a corresponding fix. It is free of charge with limited functions but is enough for people like us.
+
 <div align=center>
 <img src='images/img7.png' width=400>
 </div>
 
 ## 6. Search on StackOverflow first
+
 - When you encounter a bug and need a solution, search on [StackOverflow](https://stackoverflow.com/) first. StackOverflow provides the most comprehensive solution, and almost all your questions can be answered here.
 
 <img src='images/img9.jpg' height=300><img src='images/img10.jpg' height=300>
 
 ## 7. Automatically format your docstring
+
 - The docstring plugin in vscode can automatically generate docstring for your functions
 - Search and install `autoDocstring` in vscode's market
 <div align=center>
