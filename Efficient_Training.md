@@ -74,7 +74,8 @@ torch.backends.cudnn.benchmark = True
 
 - The learning rate (schedule) you choose has a large impact on the speed of convergence as well as the generalization performance of your model. `Cyclical learning rate` and the `1Cycle learning rate` schedule seem to accelerate convergence.
 ![img](images/img15.JPG)
-- PyTorch implements both of these methods `torch.optim.lr_scheduler.CyclicLR` and `torch.optim.lr_scheduler.OneCycleLR`, see [here]() for more details.
+- PyTorch implements both of these methods `torch.optim.lr_scheduler.CyclicLR` and `torch.optim.lr_scheduler.OneCycleLR`
+- You can refer to this [blog](https://sgugger.github.io/the-1cycle-policy.html) for more details.
 
 ### 2.3. Best combination, Adam with 3e-4
 
