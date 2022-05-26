@@ -5,6 +5,7 @@
 - [Octotree: Free gitHub code tree](#3-octotree-free-github-code-tree)
 - [ACRONYMIFY: Name your paper with a cool acronyms](#4-acronymify-name-your-paper-with-a-cool-acronyms)
 - [Linggle: Grammer checker](#5-linggle-grammer-checker)
+- [AI pair programmer: Github Copilot](#6-ai-pair-programmer-github-copilot)
 ## 1. Torchinfo: Visualize Network Architecture
 
 - **Website**:[https://github.com/TylerYep/torchinfo](https://github.com/TylerYep/torchinfo)

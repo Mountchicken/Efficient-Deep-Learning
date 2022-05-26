@@ -63,6 +63,7 @@
   - [Octotree: Free gitHub code tree](Efficient_Tools.md#3-octotree-free-github-code-tree)
   - [ACRONYMIFY: Name your paper with a cool acronyms](Efficient_Tools.md#4-acronymify-name-your-paper-with-a-cool-acronyms)
   - [Linggle: Grammer checker](Efficient_Tools.md#5-linggle-grammer-checker)
+  - [AI pair programmer: Github Copilot](Efficient_Tools.md#6-ai-pair-programmer-github-copilot)
 ----
 
 - ***"The past decade has seen tremendous progress in the field of artificial intelligence thanks to the resurgence of neural networks through deep learning. This has helped improve the ability for computers to see, hear, and understand the world around them, leading to dramatic advances in the application of AI to many fields of science and other areas of human endeavor" ——Jeffrey Dean***
