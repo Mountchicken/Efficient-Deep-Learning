@@ -49,7 +49,7 @@
   * What nouns can be used after `execute`
   * I just made up an expression `avoid his coming`, trying to determine if it was authentic.
 - Let's see how linggle can help you with it
-#### 1. Search for the correct preposition pairing
+#### Search for the correct preposition pairing
 
 - **Use / to space out the prepositions**:
 
@@ -63,7 +63,7 @@
 
 - Linggle can look up the usage of relevant prepositions in its corpus and tell you which ones are most commonly used, and will give you many examples
 
-#### 2. What can be the verb before `war`?
+#### What can be the verb before `war`?
 - **We can use `v. a war` to query.**, `v. a war` means verb ahead war.
 
 <div align=center>
@@ -74,14 +74,14 @@
   <img src='images/linggle4.JPG' width=500 >
 </div>
 
-#### 3. What nouns can be used after `execute`?
+#### What nouns can be used after `execute`?
 - **`excute n.`**
 
 <div align=center>
   <img src='images/linggle5.JPG' width=500 >
 </div>
 
-#### 4. Check the usage for authenticity
+#### Check the usage for authenticity
 
 <div align=center>
   <img src='images/linggle6.JPG' width=500 >
@@ -90,6 +90,25 @@
 - Saddly, `avoid his coming` is not authentic.
 
 - **Linggle can do much more than those, and you can see more usages on its website.**
+
+
+## 6. AI pair programmer: Github Copilot
+
+<div align=center>
+  <img src='images/copilot.png' width=100 >
+</div>
+
+- GitHub Copilot is powered by the OpenAI. Copilot is a modified, production version of the Generative Pre-trained Transformer 3 (GPT-3), a language model using deep-learning to produce human-like text.
+- For example, when provided with a programming problem in natural language, copilot is capable of generating solution code. It is also able to describe input code in English and translate code between programming languages.
+- Copilot’s OpenAI is trained on a selection of the English language, public GitHub repositories, and other publicly available source code. This includes a filtered dataset of 159 gigabytes of Python code sourced from 54 million public GitHub repositories.
+- Here are some examples of what copilot can do:
+  * Generate a solution to a programming problem
+  * Describe a code snippet in English
+  * Translate code between programming languages
+
+<div align=center>
+  <img src='images/copilot.gif' width=800 >
+</div>
 
 # Reference
 - [知乎: 有没有什么可以节省大量时间的 Deep Learning 效率神器？](https://www.zhihu.com/question/384519338/answer/1196326124?utm_source=wechat_session&utm_medium=social&utm_oi=1094267717124816896&utm_content=group1_Answer&utm_campaign=shareopn)
