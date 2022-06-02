@@ -43,7 +43,8 @@
   - [Use another optimizer AdamW](Efficient_Training.md#21-use-another-optimizer-adamw)
   - [Learning rate schedule](Efficient_Training.md#22-learning-rate-schedule)
   - [Useful combination, Adam with 3e-4](Efficient_Training.md#23-best-combination-adam-with-3e-4)
-
+  - [LR Warm up and Cosine Learning Rate Decay](Efficient_Training.md#24-lr-warm-up-and-cosine-learning-rate-decay)
+  - [L2 decay](Efficient_Training.md#25-l2-decay)
 ## 5.Efficient GPUtilization
 
 - Strategies to have a better GPU utilization.
