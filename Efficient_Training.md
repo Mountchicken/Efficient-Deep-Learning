@@ -7,9 +7,11 @@
   - [1.3. Turn off debugging APIs](#13-turn-off-debugging)
   - [1.4. Turn off gradient computation during validation](#14-turn-off-gradient-computation-during-validation)
 - [2. Faster convergence speed](#2-faster-convergence-speed)
-  - [2.1. Use another optimizer AdamW](#2-faster-convergence-speed)
-  - [2.2. Learning rate schedule](#2-faster-convergence-speed)
+  - [2.1. Use another optimizer AdamW](#21-use-another-optimizer-adamw)
+  - [2.2. Learning rate schedule](#22-cyclical-learning-rate-schedule)
   - [2.3. Best combination, Adam with 3e-4](#23-best-combination-adam-with-3e-4)
+  - [2.4. LR Warm up and Cosine Learning Rate Decay](#24-lr-warm-up-and-cosine-learning-rate-decay)
+  - [2.5 L2 decay](#25-l2-decay)
 - [3. Visualize and log informations]()
 
 ## 1. Faster traing speed
@@ -70,7 +72,7 @@ torch.backends.cudnn.benchmark = True
 
 - AdamW is Adam with weight decay (rather than L2-regularization) which was popularized by fast.ai and is now available natively in PyTorch as `torch.optim.AdamW`. AdamW seems to consistently outperform Adam in terms of both the error achieved and the training time. See this [excellent blog](https://www.fast.ai/2018/07/02/adam-weight-decay/) post on why using weight decay instead of L2-regularization makes a difference for Adam.
 
-### 2.2. Learning rate schedule
+### 2.2. Cyclical learning rate schedule
 
 - The learning rate (schedule) you choose has a large impact on the speed of convergence as well as the generalization performance of your model. `Cyclical learning rate` and the `1Cycle learning rate` schedule seem to accelerate convergence.
 ![img](images/img15.JPG)
@@ -80,3 +82,26 @@ torch.backends.cudnn.benchmark = True
 ### 2.3. Best combination, Adam with 3e-4
 
 - The Adam optimizer with a learning rate of 3e-4 is a very good combinator. You can try this pair when your network does not converge, and if the network still does not converge, then you can at least rule out that it is a learning rate problem.
+
+### 2.4. LR Warm up and Cosine Learning Rate Decay
+- Learning rate warm up is a technique that increase the learning rate for the first few epochs before the actual training starts.
+- Cosine learning rate decay means that the learning rate will decrease in a cosine fashion.
+
+<div align=center>
+  <img src='images/coslr.png' width=400 >
+</div>
+
+- Combine these two methods can speed up the convergence of your model and may also improve the performance.
+- Here is an experiment from [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR). Use both of these methods can get **0.8%** and **1.5%** improvement for both text detection and text recognition respectively. (2 epochs warm up for 500 total epochs)
+
+<div align=center>
+  <img src='images/paddledet.png' width=600 >
+</div>
+
+<div align=center>
+  <img src='images/paddlerecog.png' width=600 >
+</div>
+
+### 2.5. L2 decay
+- L2-regularization is a technique that is used to prevent overfitting. You can specify this param in optimizer. E.g. `optimizer = torch.optim.Adam(model.parameters(), lr=1e-3, weight_decay=1e-5)`
+- As you can see from the experiment above, the use of L2 decay results in a 3.4% improvement in text recognition.
