@@ -67,4 +67,11 @@
   - [AI pair programmer: Github Copilot](Efficient_Tools.md#6-ai-pair-programmer-github-copilot)
 ----
 
+## 7.Efficient Writting
+- [Efficient Writting](Efficient_Writting.md)
+  - [Overleaf: Online LaTeX Editor](Efficient_Writting.md#1-overleaf-online-latex-editor)
+  - [Python Graph Gallery: A gallery of Python graphs](Efficient_Writting.md#2-python-graph-gallery-a-gallery-of-python-graphs)
+  - [I Love PDF: Online PDF Tools](Efficient_Writting.md#3-i-love-pdf-online-pdf-tools)
+  - [Color Hunt: Color Palettes for Designers and Artists](Efficient_Writting.md#4-color-hunt-color-palettes-for-designers-and-artists)
+----
 - ***"The past decade has seen tremendous progress in the field of artificial intelligence thanks to the resurgence of neural networks through deep learning. This has helped improve the ability for computers to see, hear, and understand the world around them, leading to dramatic advances in the application of AI to many fields of science and other areas of human endeavor" ——Jeffrey Dean***
