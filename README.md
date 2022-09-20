@@ -65,6 +65,7 @@
   - [ACRONYMIFY: Name your paper with a cool acronyms](Efficient_Tools.md#4-acronymify-name-your-paper-with-a-cool-acronyms)
   - [Linggle: Grammer checker](Efficient_Tools.md#5-linggle-grammer-checker)
   - [AI pair programmer: Github Copilot](Efficient_Tools.md#6-ai-pair-programmer-github-copilot)
+  - [PARSEC: Free Remote Desktop](Efficient_Tools.md#7-parsec-free-remote-desktop)
 ----
 
 ## 7.Efficient Writting

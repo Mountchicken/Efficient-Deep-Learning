@@ -1,11 +1,18 @@
 # Efficient Tools
 
-- [Torchinfo: Visualize Network Architecture](#1-torchinfo-visualize-network-architecture)
-- [DrawIO: Free graphing software](#2-drawio-free-graphing-software)
-- [Octotree: Free gitHub code tree](#3-octotree-free-github-code-tree)
-- [ACRONYMIFY: Name your paper with a cool acronyms](#4-acronymify-name-your-paper-with-a-cool-acronyms)
-- [Linggle: Grammer checker](#5-linggle-grammer-checker)
-- [AI pair programmer: Github Copilot](#6-ai-pair-programmer-github-copilot)
+- [Efficient Tools](#efficient-tools)
+  - [1. Torchinfo: Visualize Network Architecture](#1-torchinfo-visualize-network-architecture)
+  - [2. drawio: Free graphing software](#2-drawio-free-graphing-software)
+  - [3. Octotree: Free gitHub code tree](#3-octotree-free-github-code-tree)
+  - [4. ACRONYMIFY: Name your paper with a cool acronyms](#4-acronymify-name-your-paper-with-a-cool-acronyms)
+  - [5. Linggle: Grammer checker](#5-linggle-grammer-checker)
+      - [Search for the correct preposition pairing](#search-for-the-correct-preposition-pairing)
+      - [What can be the verb before `war`?](#what-can-be-the-verb-before-war)
+      - [What nouns can be used after `execute`?](#what-nouns-can-be-used-after-execute)
+      - [Check the usage for authenticity](#check-the-usage-for-authenticity)
+  - [6. AI pair programmer: Github Copilot](#6-ai-pair-programmer-github-copilot)
+  - [7. PARSEC: Free Remote Desktop](#7-parsec-free-remote-desktop)
+- [Reference](#reference)
 ## 1. Torchinfo: Visualize Network Architecture
 
 - **Website**:[https://github.com/TylerYep/torchinfo](https://github.com/TylerYep/torchinfo)
@@ -110,6 +117,16 @@
 <div align=center>
   <img src='images/copilot.gif' width=800 >
 </div>
+
+## 7. PARSEC: Free Remote Desktop
+
+<div align=center>
+  <img src='images/parsec.png' width=800 >
+</div>
+
+- **Website**: [https://parsec.app](https://parsec.app)
+- Parsec is a free, HD, powerful remote desktop. It allows you to play games with your friends, watch movies with your family, or collaborate with colleagues from anywhere.
+
 
 # Reference
 - [知乎: 有没有什么可以节省大量时间的 Deep Learning 效率神器？](https://www.zhihu.com/question/384519338/answer/1196326124?utm_source=wechat_session&utm_medium=social&utm_oi=1094267717124816896&utm_content=group1_Answer&utm_campaign=shareopn)
