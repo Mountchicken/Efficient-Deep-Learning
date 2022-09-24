@@ -36,3 +36,13 @@
 
 - **Website**: [https://colorhunt.co/](https://colorhunt.co/)
 - If you want your paper to be attractive enough, then your paper's color scheme is important. This website provides a lot of color palettes for you to choose from. You can also search for specific color palettes.
+
+## 5. Tables Generator: Create LaTeX Tables
+
+
+<div align=center>
+  <img src='images/table.png' width=600>
+</div>
+
+- **Website**: [https://www.tablesgenerator.com/](https://www.tablesgenerator.com/)
+- Tables are an important part of your paper. This website provides a tool for you to generate LaTeX tables. You can also use it to generate tables in other formats, such as HTML, Markdown, etc.
