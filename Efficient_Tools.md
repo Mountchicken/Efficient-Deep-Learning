@@ -12,6 +12,7 @@
       - [Check the usage for authenticity](#check-the-usage-for-authenticity)
   - [6. AI pair programmer: Github Copilot](#6-ai-pair-programmer-github-copilot)
   - [7. PARSEC: Free Remote Desktop](#7-parsec-free-remote-desktop)
+  - [8. gdown: Download Large files from Google Drive in command line](#8-gdown-download-large-files-from-google-drive-in-command-line)
 - [Reference](#reference)
 ## 1. Torchinfo: Visualize Network Architecture
 
@@ -121,12 +122,19 @@
 ## 7. PARSEC: Free Remote Desktop
 
 <div align=center>
-  <img src='images/parsec.png' width=800 >
+  <img src='images/parsec.png' width=8500 >
 </div>
 
 - **Website**: [https://parsec.app](https://parsec.app)
 - Parsec is a free, HD, powerful remote desktop. It allows you to play games with your friends, watch movies with your family, or collaborate with colleagues from anywhere.
 
+## 8. gdown: Download Large files from Google Drive in command line
+
+<div align=center>
+  <img src='images/gdown.png' width=500 >
+</div>
+- **Github**: [https://github.com/wkentaro/gdown](https://github.com/wkentaro/gdown)
+- We all faced the problem of downloading large files from Google Drive. The download speed is very slow, and it is easy to be interrupted. Moreover, it is difficult to download on linux. gdown is a command line tool that can download large files from Google Drive in command line. It is very easy to use, and the download speed is very fast.
 
 # Reference
 - [知乎: 有没有什么可以节省大量时间的 Deep Learning 效率神器？](https://www.zhihu.com/question/384519338/answer/1196326124?utm_source=wechat_session&utm_medium=social&utm_oi=1094267717124816896&utm_content=group1_Answer&utm_campaign=shareopn)

@@ -66,6 +66,7 @@
   - [Linggle: Grammer checker](Efficient_Tools.md#5-linggle-grammer-checker)
   - [AI pair programmer: Github Copilot](Efficient_Tools.md#6-ai-pair-programmer-github-copilot)
   - [PARSEC: Free Remote Desktop](Efficient_Tools.md#7-parsec-free-remote-desktop)
+  - [gdown: Download Large files from Google Drive in command line](Efficient_Tools.md#8-gdown-download-large-files-from-google-drive-in-command-line)
 ----
 
 ## 7.Efficient Writting
