@@ -5,12 +5,13 @@
   - [2. Automatically format your code](#2-automatically-format-your-code)
   - [3. Use a pre-commit hook to check your code](#3-use-a-pre-commit-hook-to-check-your-code)
   - [4. Learn to use Git](#4-learn-to-use-git)
-    - [Don't forget the .gitignore](#dont-forget-the-gitignore)
-    - [Make your commits more standardized](#make-your-commits-more-standardized)
-    - [Branches](#branches)
+    - [**Don't forget the `.gitignore`**](#dont-forget-the-gitignore)
+    - [**Make your commits more standardized**](#make-your-commits-more-standardized)
+    - [**Branches**](#branches)
   - [5. Use Grammarly to check your writing](#5-use-grammarly-to-check-your-writing)
   - [6. Search on StackOverflow first](#6-search-on-stackoverflow-first)
-  - [7. Automatically format your docstring]()
+  - [7. Automatically format your docstring](#7-automatically-format-your-docstring)
+  - [8. Accelerate from HuggingFace🤗](#8-accelerate-from-huggingface)
 
 ## 1. You shouldn't miss VSCode
 
@@ -235,3 +236,40 @@ If you are not familiar with Git commands, just follow [this guide](https://lear
 <div align=center>
 <img src='images/docstring.JPG' width=400>
 </div>
+
+## 8. Accelerate from HuggingFace🤗
+- [Accelerate](https://github.com/huggingface/accelerate) is created for PyTorch users who like to write the training loop of PyTorch models but are reluctant to write and maintain the boilerplate code needed to use multi-GPUs/TPU/fp16. Accelerate abstracts exactly and only the boilerplate code related to multi-GPUs/TPU/fp16 and leaves the rest of your code unchanged.
+```python
+  import torch
+  import torch.nn.functional as F
+  from datasets import load_dataset
++ from accelerate import Accelerator
+
++ accelerator = Accelerator()
+- device = 'cpu'
++ device = accelerator.device
+
+  model = torch.nn.Transformer().to(device)
+  optimizer = torch.optim.Adam(model.parameters())
+
+  dataset = load_dataset('my_dataset')
+  data = torch.utils.data.DataLoader(dataset, shuffle=True)
+
++ model, optimizer, data = accelerator.prepare(model, optimizer, data)
+
+  model.train()
+  for epoch in range(10):
+      for source, targets in data:
+          source = source.to(device)
+          targets = targets.to(device)
+
+          optimizer.zero_grad()
+
+          output = model(source)
+          loss = F.cross_entropy(output, targets)
+
+-         loss.backward()
++         accelerator.backward(loss)
+
+          optimizer.step()
+```

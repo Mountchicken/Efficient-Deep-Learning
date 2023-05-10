@@ -22,6 +22,7 @@
   - [Grammarly](Efficient_Coding.md#5-use-grammarly-to-check-your-writing)
   - [StackOverflow](Efficient_Coding.md#6-search-on-stackoverflow-first)
   - [Auto docstring](Efficient_Coding.md#7-automatically-format-your-docstring)
+  - [Accelerate](Efficient_Coding.md#8-accelerate)
 ## 3.Efficient Data Processing
 
 - Strategies to speed up your data processing.
