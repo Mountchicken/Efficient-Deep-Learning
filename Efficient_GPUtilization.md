@@ -1,19 +1,24 @@
 # Efficient GPU Utilization
 
-- [1. CUDA out of memory solutions](#1-cuda-out-of-memory-solutions)
-  - [1.1. Use a smaller batch size](#11-use-a-smaller-batch-size)
-  - [1.2. Check if there is any accumulated history across your training loop](#12-check-if-there-is-any-accumulated-history-across-your-training-loop)
-  - [1.3. Avoid creating new variables](#13-avoid-creating-new-variables)
-  - [1.4. Delete intermediate variables you don't need](#14-delete-intermediate-variables-you-dont-need)
-  - [1.5. Check if you GPU memory is freed properly](#15-check-if-you-gpu-memory-is-freed-properly)
-  - [1.6. Turn off gradient calculation during validation](#16-turn-off-gradient-calculation-during-validation)
-  - [1.7. COM in Google Colab](#17-com-in-google-colab)
-- [2. GPU Memory Saving Tips](#2-gpu-memory-saving-tips)
-  - [2.1. Automatic Mixed Precision (AMP)](#21-automatic-mixed-precisionamp)
-  - [2.2. Gradient Accumulation](#22-gradient-accumulation)
-  - [2.3. Gradient Checkpoint](#23-gradient-checkpoint)
-- [3. Multiple GPUs](#2-multiple-gpus)
-  - [3.1. Distributed model training](#31-distributed-model-training)
+- [Efficient GPU Utilization](#efficient-gpu-utilization)
+  - [1. CUDA out of memory solutions](#1-cuda-out-of-memory-solutions)
+    - [1.1. Use a smaller batch size](#11-use-a-smaller-batch-size)
+    - [1.2. Check if there is any accumulated history across your training loop](#12-check-if-there-is-any-accumulated-history-across-your-training-loop)
+    - [1.3. Avoid creating new variables](#13-avoid-creating-new-variables)
+    - [1.4. Delete intermediate variables you don't need](#14-delete-intermediate-variables-you-dont-need)
+    - [1.5. Check if your GPU memory is freed properly](#15-check-if-your-gpu-memory-is-freed-properly)
+    - [1.6. Turn off gradient calculation during validation](#16-turn-off-gradient-calculation-during-validation)
+    - [1.7. COM in Google Colab](#17-com-in-google-colab)
+  - [2. GPU Memory Saving Tips](#2-gpu-memory-saving-tips)
+    - [2.1. Automatic Mixed Precision(AMP)](#21-automatic-mixed-precisionamp)
+    - [2.2. Gradient Accumulation](#22-gradient-accumulation)
+    - [2.3. Gradient Checkpoint](#23-gradient-checkpoint)
+  - [3. Multiple GPUs](#3-multiple-gpus)
+    - [3.1. Distributed model training](#31-distributed-model-training)
+      - [What is distributed training](#what-is-distributed-training)
+      - [Data parallelization training](#data-parallelization-training)
+      - [Use Accelerate for Fast Implementation](#use-accelerate-for-fast-implementation)
+  - [Reference](#reference)
 
 ## 1. CUDA out of memory solutions
 
@@ -312,6 +317,10 @@
   - 5. The next batch of training begins.
 
 ![img](images/dataparal.gif)
+
+#### Use Accelerate for Fast Implementation
+- Convert your code from single GPU to multi GPU can be very tedious. Fortunately, you can implement distributed training in PyTorch with just a few lines of code using the [Accelerate](https://github.com/huggingface/accelerate) library.
+
 
 ## Reference
 

@@ -46,3 +46,64 @@
 
 - **Website**: [https://www.tablesgenerator.com/](https://www.tablesgenerator.com/)
 - Tables are an important part of your paper. This website provides a tool for you to generate LaTeX tables. You can also use it to generate tables in other formats, such as HTML, Markdown, etc.
+
+## 6. ACRONYMIFY: Name your paper with a cool acronyms
+
+- **Website**:[http://acronymify.com/](http://acronymify.com/)
+- A good paper naming not only motivates the reader to read, but also makes your paper memorable, for example by using abbreviations of words to construct an interesting word. A typical example is the Sesame Street Family in NLP (BERT, ELMO, ERNIE ...). [Acronymify](http://acronymify.com/search?q=Efficient+Deep+Learning) can automatically generate a series of acronyms for the title of your paper, and you pick the one you like
+
+<div align=center>
+  <img src='images/acronymify.JPG' width=500 >
+</div>
+
+## 7. Linggle: Grammer checker
+- **Website**: [https://linggle.com/](https://linggle.com/)
+- When you are writing in English, have you ever encountered these similar problems:
+  * `in the afternoon`, `at the afternoon`, which one is correct?
+  * The preposition after `present a method` is `for` or `to`.
+  * What can be the verb before `war`?
+  * What nouns can be used after `execute`
+  * I just made up an expression `avoid his coming`, trying to determine if it was authentic.
+- Let's see how linggle can help you with it
+#### Search for the correct preposition pairing
+
+- **Use / to space out the prepositions**:
+
+<div align=center>
+  <img src='images/linggle1.JPG' width=500 >
+</div>
+
+<div align=center>
+  <img src='images/linggle2.JPG' width=500 >
+</div>
+
+- Linggle can look up the usage of relevant prepositions in its corpus and tell you which ones are most commonly used, and will give you many examples
+
+#### What can be the verb before `war`?
+- **We can use `v. a war` to query.**, `v. a war` means verb ahead war.
+
+<div align=center>
+  <img src='images/linggle3.JPG' width=500 >
+</div>
+
+<div align=center>
+  <img src='images/linggle4.JPG' width=500 >
+</div>
+
+#### What nouns can be used after `execute`?
+- **`excute n.`**
+
+<div align=center>
+  <img src='images/linggle5.JPG' width=500 >
+</div>
+
+#### Check the usage for authenticity
+
+<div align=center>
+  <img src='images/linggle6.JPG' width=500 >
+</div>
+
+- Saddly, `avoid his coming` is not authentic.
+
+- **Linggle can do much more than those, and you can see more usages on its website.**
+

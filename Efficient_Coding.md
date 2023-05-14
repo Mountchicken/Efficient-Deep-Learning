@@ -239,37 +239,37 @@ If you are not familiar with Git commands, just follow [this guide](https://lear
 
 ## 8. Accelerate from HuggingFace🤗
 - [Accelerate](https://github.com/huggingface/accelerate) is created for PyTorch users who like to write the training loop of PyTorch models but are reluctant to write and maintain the boilerplate code needed to use multi-GPUs/TPU/fp16. Accelerate abstracts exactly and only the boilerplate code related to multi-GPUs/TPU/fp16 and leaves the rest of your code unchanged.
-```python
-  import torch
-  import torch.nn.functional as F
-  from datasets import load_dataset
-+ from accelerate import Accelerator
+  ```python
+    import torch
+    import torch.nn.functional as F
+    from datasets import load_dataset
+  + from accelerate import Accelerator
 
-+ accelerator = Accelerator()
-- device = 'cpu'
-+ device = accelerator.device
+  + accelerator = Accelerator()
+  - device = 'cpu'
+  + device = accelerator.device
 
-  model = torch.nn.Transformer().to(device)
-  optimizer = torch.optim.Adam(model.parameters())
+    model = torch.nn.Transformer().to(device)
+    optimizer = torch.optim.Adam(model.parameters())
 
-  dataset = load_dataset('my_dataset')
-  data = torch.utils.data.DataLoader(dataset, shuffle=True)
+    dataset = load_dataset('my_dataset')
+    data = torch.utils.data.DataLoader(dataset, shuffle=True)
 
-+ model, optimizer, data = accelerator.prepare(model, optimizer, data)
+  + model, optimizer, data = accelerator.prepare(model, optimizer, data)
 
-  model.train()
-  for epoch in range(10):
-      for source, targets in data:
-          source = source.to(device)
-          targets = targets.to(device)
+    model.train()
+    for epoch in range(10):
+        for source, targets in data:
+            source = source.to(device)
+            targets = targets.to(device)
 
-          optimizer.zero_grad()
+            optimizer.zero_grad()
 
-          output = model(source)
-          loss = F.cross_entropy(output, targets)
+            output = model(source)
+            loss = F.cross_entropy(output, targets)
 
--         loss.backward()
-+         accelerator.backward(loss)
+  -         loss.backward()
+  +         accelerator.backward(loss)
 
-          optimizer.step()
-```
+            optimizer.step()
+  ```

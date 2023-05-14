@@ -23,6 +23,7 @@
   - [StackOverflow](Efficient_Coding.md#6-search-on-stackoverflow-first)
   - [Auto docstring](Efficient_Coding.md#7-automatically-format-your-docstring)
   - [Accelerate](Efficient_Coding.md#8-accelerate)
+
 ## 3.Efficient Data Processing
 
 - Strategies to speed up your data processing.
@@ -63,11 +64,9 @@
   - [Torchinfo: Visualize Network Architecture](Efficient_Tools.md#1-torchinfo-visualize-network-architecture)
   - [drawio: Free graphing software](Efficient_Tools.md#2-drawio-free-graphing-software)
   - [Octotree: Free gitHub code tree](Efficient_Tools.md#3-octotree-free-github-code-tree)
-  - [ACRONYMIFY: Name your paper with a cool acronyms](Efficient_Tools.md#4-acronymify-name-your-paper-with-a-cool-acronyms)
-  - [Linggle: Grammer checker](Efficient_Tools.md#5-linggle-grammer-checker)
-  - [AI pair programmer: Github Copilot](Efficient_Tools.md#6-ai-pair-programmer-github-copilot)
-  - [PARSEC: Free Remote Desktop](Efficient_Tools.md#7-parsec-free-remote-desktop)
-  - [gdown: Download Large files from Google Drive in command line](Efficient_Tools.md#8-gdown-download-large-files-from-google-drive-in-command-line)
+  - [AI pair programmer: Github Copilot](Efficient_Tools.md#4-ai-pair-programmer-github-copilot)
+  - [PARSEC: Free Remote Desktop](Efficient_Tools.md#5-parsec-free-remote-desktop)
+  - [gdown: Download Large files from Google Drive in command line](Efficient_Tools.md#6-gdown-download-large-files-from-google-drive-in-command-line)
 ----
 
 ## 7.Efficient Writting
@@ -77,5 +76,7 @@
   - [I Love PDF: Online PDF Tools](Efficient_Writting.md#3-i-love-pdf-online-pdf-tools)
   - [Color Hunt: Color Palettes for Designers and Artists](Efficient_Writting.md#4-color-hunt-color-palettes-for-designers-and-artists)
   - [Tables Generator: Create LaTeX Tables](Efficient_Writting.md#5-tables-generator-create-latex-tables)
+  - [ACRONYMIFY: Name your paper with a cool acronyms](Efficient_Tools.md#6-acronymify-name-your-paper-with-a-cool-acronyms)
+  - [Linggle: Grammer checker](Efficient_Tools.md#7-linggle-grammer-checker)
 ----
 - ***"The past decade has seen tremendous progress in the field of artificial intelligence thanks to the resurgence of neural networks through deep learning. This has helped improve the ability for computers to see, hear, and understand the world around them, leading to dramatic advances in the application of AI to many fields of science and other areas of human endeavor" ——Jeffrey Dean***

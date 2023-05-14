@@ -4,15 +4,9 @@
   - [1. Torchinfo: Visualize Network Architecture](#1-torchinfo-visualize-network-architecture)
   - [2. drawio: Free graphing software](#2-drawio-free-graphing-software)
   - [3. Octotree: Free gitHub code tree](#3-octotree-free-github-code-tree)
-  - [4. ACRONYMIFY: Name your paper with a cool acronyms](#4-acronymify-name-your-paper-with-a-cool-acronyms)
-  - [5. Linggle: Grammer checker](#5-linggle-grammer-checker)
-      - [Search for the correct preposition pairing](#search-for-the-correct-preposition-pairing)
-      - [What can be the verb before `war`?](#what-can-be-the-verb-before-war)
-      - [What nouns can be used after `execute`?](#what-nouns-can-be-used-after-execute)
-      - [Check the usage for authenticity](#check-the-usage-for-authenticity)
-  - [6. AI pair programmer: Github Copilot](#6-ai-pair-programmer-github-copilot)
-  - [7. PARSEC: Free Remote Desktop](#7-parsec-free-remote-desktop)
-  - [8. gdown: Download Large files from Google Drive in command line](#8-gdown-download-large-files-from-google-drive-in-command-line)
+  - [4. AI pair programmer: Github Copilot](#4-ai-pair-programmer-github-copilot)
+  - [5. PARSEC: Free Remote Desktop](#5-parsec-free-remote-desktop)
+  - [6. gdown: Download Large files from Google Drive in command line](#6-gdown-download-large-files-from-google-drive-in-command-line)
 - [Reference](#reference)
 ## 1. Torchinfo: Visualize Network Architecture
 
@@ -40,68 +34,8 @@
   <img src='images/octotree.gif' width=300 >
 </div>
 
-## 4. ACRONYMIFY: Name your paper with a cool acronyms
 
-- **Website**:[http://acronymify.com/](http://acronymify.com/)
-- A good paper naming not only motivates the reader to read, but also makes your paper memorable, for example by using abbreviations of words to construct an interesting word. A typical example is the Sesame Street Family in NLP (BERT, ELMO, ERNIE ...). [Acronymify](http://acronymify.com/search?q=Efficient+Deep+Learning) can automatically generate a series of acronyms for the title of your paper, and you pick the one you like
-
-<div align=center>
-  <img src='images/acronymify.JPG' width=500 >
-</div>
-
-## 5. Linggle: Grammer checker
-- **Website**: [https://linggle.com/](https://linggle.com/)
-- When you are writing in English, have you ever encountered these similar problems:
-  * `in the afternoon`, `at the afternoon`, which one is correct?
-  * The preposition after `present a method` is `for` or `to`.
-  * What can be the verb before `war`?
-  * What nouns can be used after `execute`
-  * I just made up an expression `avoid his coming`, trying to determine if it was authentic.
-- Let's see how linggle can help you with it
-#### Search for the correct preposition pairing
-
-- **Use / to space out the prepositions**:
-
-<div align=center>
-  <img src='images/linggle1.JPG' width=500 >
-</div>
-
-<div align=center>
-  <img src='images/linggle2.JPG' width=500 >
-</div>
-
-- Linggle can look up the usage of relevant prepositions in its corpus and tell you which ones are most commonly used, and will give you many examples
-
-#### What can be the verb before `war`?
-- **We can use `v. a war` to query.**, `v. a war` means verb ahead war.
-
-<div align=center>
-  <img src='images/linggle3.JPG' width=500 >
-</div>
-
-<div align=center>
-  <img src='images/linggle4.JPG' width=500 >
-</div>
-
-#### What nouns can be used after `execute`?
-- **`excute n.`**
-
-<div align=center>
-  <img src='images/linggle5.JPG' width=500 >
-</div>
-
-#### Check the usage for authenticity
-
-<div align=center>
-  <img src='images/linggle6.JPG' width=500 >
-</div>
-
-- Saddly, `avoid his coming` is not authentic.
-
-- **Linggle can do much more than those, and you can see more usages on its website.**
-
-
-## 6. AI pair programmer: Github Copilot
+## 4. AI pair programmer: Github Copilot
 
 <div align=center>
   <img src='images/copilot.png' width=100 >
@@ -119,7 +53,7 @@
   <img src='images/copilot.gif' width=800 >
 </div>
 
-## 7. PARSEC: Free Remote Desktop
+## 5. PARSEC: Free Remote Desktop
 
 <div align=center>
   <img src='images/parsec.png' width=8500 >
@@ -128,7 +62,7 @@
 - **Website**: [https://parsec.app](https://parsec.app)
 - Parsec is a free, HD, powerful remote desktop. It allows you to play games with your friends, watch movies with your family, or collaborate with colleagues from anywhere.
 
-## 8. gdown: Download Large files from Google Drive in command line
+## 6. gdown: Download Large files from Google Drive in command line
 
 <div align=center>
   <img src='images/gdown.png' width=500 >
