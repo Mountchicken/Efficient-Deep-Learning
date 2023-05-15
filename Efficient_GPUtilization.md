@@ -328,3 +328,4 @@
 - [Explore Gradient-Checkpointing in PyTorch](https://qywu.github.io/2019/05/22/explore-gradient-checkpointing.html)
 - [https://spell.ml/blog/mixed-precision-training-with-pytorch-Xuk7YBEAACAASJam](https://spell.ml/blog/mixed-precision-training-with-pytorch-Xuk7YBEAACAASJam)
 - [Distributed model training in PyTorch using DistributedDataParallel](https://spell.ml/blog/pytorch-distributed-data-parallel-XvEaABIAAB8Ars0e)
+- [HuggingFace: Performance and Scalability: How To Fit a Bigger Model and Train It Faster](https://huggingface.co/docs/transformers/v4.18.0/en/performance#performance-and-scalability-how-to-fit-a-bigger-model-and-train-it-faster)
