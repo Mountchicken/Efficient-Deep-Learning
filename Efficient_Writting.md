@@ -107,3 +107,6 @@
 
 - **Linggle can do much more than those, and you can see more usages on its website.**
 
+## 8. arXiv latex cleaner: Clean up the latex code of your paper
+- [repo](https://github.com/google-research/arxiv-latex-cleaner)
+- This tool allows you to easily clean the LaTeX code of your paper to submit to arXiv. From a folder containing all your code, e.g. /path/to/latex/, it creates a new folder /path/to/latex_arXiv/, that is ready to ZIP and upload to arXiv.

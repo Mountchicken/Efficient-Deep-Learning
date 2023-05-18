@@ -78,5 +78,6 @@
   - [Tables Generator: Create LaTeX Tables](Efficient_Writting.md#5-tables-generator-create-latex-tables)
   - [ACRONYMIFY: Name your paper with a cool acronyms](Efficient_Tools.md#6-acronymify-name-your-paper-with-a-cool-acronyms)
   - [Linggle: Grammer checker](Efficient_Tools.md#7-linggle-grammer-checker)
+  - [arXiv latex cleaner: Clean up the latex code of your paper](Efficient_Tools.md#8-arxiv-latex-cleaner-clean-up-the-latex-code-of-your-paper)
 ----
 - ***"The past decade has seen tremendous progress in the field of artificial intelligence thanks to the resurgence of neural networks through deep learning. This has helped improve the ability for computers to see, hear, and understand the world around them, leading to dramatic advances in the application of AI to many fields of science and other areas of human endeavor" ——Jeffrey Dean***
