@@ -43,7 +43,7 @@
 - Install on VSCode:
   - `Step1`, install yapf and flake8
     ```bash
-    $ pip install flake8 yapf isort==5.10.1
+    pip install flake8 yapf isort==5.10.1
     ```
   - `Step2`, add the following commands in `settings.json`
     ```JSON
@@ -100,7 +100,7 @@
 - After installed, you can run the following command to start a check.
 
   ```bash
-  $ pre-commit run --all-files
+  pre-commit run --all-files
   ```
 
 - Also, when you are committing your code, the hook will automatically check your code and you won't be able to successfully commit it until all checks pass. Yeah, that's the BATMAN🦇.
@@ -116,10 +116,10 @@ If you are not familiar with Git commands, just follow [this guide](https://lear
 
     ```bash
     # username and email should be consistent with your github count, E.g.
-    # $ git config --global user.name "Mountchicken"
-    # $ git config --global user.email "mountchicken@outlook.com"
-    $ git config --global user.name "Username"
-    $ git config --global user.email "Email"
+    # git config --global user.name "Mountchicken"
+    # git config --global user.email "mountchicken@outlook.com"
+    git config --global user.name "Username"
+    git config --global user.email "Email"
     ```
 
   - `Step2`: Create a New repository on you github
@@ -130,7 +130,7 @@ If you are not familiar with Git commands, just follow [this guide](https://lear
     </div>
 
     ```bash
-    $ git clone https://github.com/...
+    git clone https://github.com/...
     ```
 
 - After finishing cloning, you will find a hidden file named `.git` in your folder. That's where all the git information is stored. **DO NOT MODIFY IT**, or you may lose some of your works.
@@ -141,15 +141,15 @@ If you are not familiar with Git commands, just follow [this guide](https://lear
 
     ```bash
     # install rvm
-    $ curl -L https://get.rvm.io | bash -s -- --autolibs=read-fail
+    curl -L https://get.rvm.io | bash -s -- --autolibs=read-fail
     # set up environment
     # Note that you might need to edit ~/.bashrc, ~/.bash_profile.
-    $ rvm autolibs disable
+    rvm autolibs disable
     # install ruby
-    $ rvm install 2.7.1
+    rvm install 2.7.1
     # install pre-commit
-    $ pip install -U pre-commit
-    $ pre-commit install
+    pip install -U pre-commit
+    pre-commit install
     ```
 
   - `Step3 (Optional)`: Install the `Git Graph` and `GitLens` plugin in VSCode.
