@@ -216,7 +216,7 @@
     | BERT          | V100 | 9.62 GB     | **8.76 G**  |
     |               | T4   | 9.35 GB     | **8.49 GB** |
 
-- In conclusion, when your have a huge model, use AMP can save you a lot of time and some GPU memory.
+- In conclusion, when you have a huge model, using AMP can save you a lot of time and some GPU memory.
 
 ### 2.2. Gradient Accumulation
 
@@ -238,7 +238,7 @@
     ```
 
 - As you can see from the code, `model.zero_grad()` is executed only after the forward count reaches `accmulation_step`, i.e. the gradient is accumulated 10 times before updating the parameters. This allows you to have a relatively large batch size while reducing the memory footprint.
-- Note that there may be a slight performance difference if the model includes layers that take batch information into account, such as BN. This is an Experiment conduct by [MMCV](https://github.com/open-mmlab/mmcv/pull/1221). Using gradient accumulation in the presence of BN may degrade model performance, but this problem should be mitigated when the Batch size is large
+- Note that there may be a slight performance difference if the model includes layers that take batch information into account, such as BN. This is an Experiment conducted by [MMCV](https://github.com/open-mmlab/mmcv/pull/1221). Using gradient accumulation in the presence of BN may degrade model performance, but this problem should be mitigated when the Batch size is large
   - **Faster RCNN without BatchNorm**
 
         | samples_per_gpu | cumulative_iters | bbox_mAP |
